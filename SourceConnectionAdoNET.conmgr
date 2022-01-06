@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SourceConnectionAdoNET"
+  DTS:DTSID="{B5BA7FE3-2F1E-43F7-8C8E-7AC20A82EF6F}"
+  DTS:CreationName="ADO.NET:Oracle.DataAccess.Client.OracleConnection, Oracle.DataAccess, Version=4.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="DATA SOURCE=HRPROD;USER ID=UCU_GP;">
+      <DTS:Password
+        DTS:Name="PASSWORD"
+        Sensitive="1"
+        p4:Salt="RrCcDUaR3ws="
+        p4:IV="E1qcGUavUQ64H90iLJCwDA=="
+        p4:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" xmlns:p4="www.microsoft.com/SqlServer/SSIS">iSd76Hfa2Q+e8069M+atFlFqaqVjIDHFhS68bhBY0zU7MCt4vMuK6En+P7CsstAhJVFY8pNiD4ynJSd0hCmfM1gcmI8S1P3W5s8WN4JbzWROSY/s9te2eweJV455WwTMYkQSC+GcN5lPKgYJpC0O22nXTek3d2DxMwwgQU2bzu8=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

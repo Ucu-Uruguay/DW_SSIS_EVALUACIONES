@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="172.16.5.45.RRHH.MGXCONS"
+  DTS:DTSID="{3409BB5F-5CD1-4CA4-89BA-08EF617F1F82}"
+  DTS:CreationName="ADO.NET:IBM.Data.DB2.DB2Connection, IBM.Data.DB2.9.7.8, Version=9.7.8.4, Culture=neutral, PublicKeyToken=7c307b91aa13d208">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Server=172.16.5.45;User ID=MGXCONS;Database=RRHH;DBName=RRHH;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"
+        p4:Salt="yY8iRbOgh4Y="
+        p4:IV="7NxAx3S6JDi+2UOrs8OCoQ=="
+        p4:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" xmlns:p4="www.microsoft.com/SqlServer/SSIS">gn8B4zAMs/kf1FOujiBY3dLmnK5B+kZAuA9Xa0oi3rrh0dm3Ctr/xgHEDsxDMdLZC+WX0khlMD4B19yVAfHZ+UEdLj1j5OHvZyzrLGoH70rGRO79bo7kSBWsDkXJnI9K/lDJfDZd2lzF6X9j3xOCIO4ISl3PKbM0tL0fKvzD24Q=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
