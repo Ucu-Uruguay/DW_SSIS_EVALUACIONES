@@ -13,8 +13,8 @@
   DTS:MaxErrorCount="0"
   DTS:ObjectName="Pruebas"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="52"
-  DTS:VersionGUID="{7CAE06A8-7198-483D-A3C9-4AD9147D7F27}">
+  DTS:VersionBuild="53"
+  DTS:VersionGUID="{2000FC81-F547-4189-AB9C-AFEC6FC05C9D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -189,12 +189,33 @@
           DTS:ConnectionString="Data Source=PROD-UCUDBS10\POWERBI;User ID=rcalvo;Initial Catalog=DW_UCU;Provider=SQLOLEDB;Auto Translate=false;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="/lShFgvAfeo="
-            IV="W3i9Hm+OGDYyvK3Lzl9Egw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="FyCUM/h4eTw="
+            IV="/meAJWvDDqDBm4cVCxmoxA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>W3i9Hm+OGDYyvK3Lzl9Egxa/EhMgPNlzgjgzEcDX027pD/XuKMvU5ZB8YCPiCWRH2aNMxwuRl7PqnBbgq9fBsPWNIFNt2N42AwXWUdHAueAB4x4fD6eyG72ahoun/PW7p0e/aIL3ZVdYSaeuQr0+ND07HuSQhuyQm5Cga8eN2yGj7OLB1o099LyrgDgeK5nd</CipherValue>
+              <CipherValue>/meAJWvDDqDBm4cVCxmoxKFi7xxWLecTDaV9BHDubictR1v3cVUOlIYraW68Pp/c5L6VfjjcEqpif5qImuLa7PoULcDt7gi1OaKbRQhpnK1be5uz1gwJ1gk8XbwM6DifT/FQ/F9rqgOfky3b7uTVbxFET1dkBXj98f/mJq474bjp46hIJA18UkMWSm3hXDRe</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Oracle_HRPROD.UCU_GP1]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{36603020-ED9C-4B69-BEFC-8FF813F8D97B}"
+      DTS:ObjectName="Oracle_HRPROD.UCU_GP1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=UCU_GP;Dsn=Oracle_HRPROD;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="UWzcu+sr9C0="
+            IV="PHUGjGPWBNzL2HlIbi02GA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+            <CipherData>
+              <CipherValue>PHUGjGPWBNzL2HlIbi02GPR+ja2Gk2BIzqpoMyYjADChBlyLPtPn6+VZC/N3qq5u3ktc5oz4BGXI16swS8cGHwwef1i6aqrjMy5Bo2VCdVUedumG1gN/aXzy+bSPr4+7u2Z2OLYNPyayoanJ93LkOjPe7Nk1siN9Fokl1zyZy9g=</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -210,12 +231,12 @@
           DTS:ConnectionString="Data Source=HRPROD;User ID=UCU_GP;Provider=MSDAORA.1;Persist Security Info=True;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="IyKVgV4ZknI="
-            IV="0efkv/SH/Dtw4ACkE+HcOA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="sfYK6QjUEr4="
+            IV="xqAgbhb0Mmpwg/b6Eq5jzQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>0efkv/SH/Dtw4ACkE+HcOBL9k6S5xHN5957g8TrWrwgChjHdWR0vpzbWSMWrrFokkRb9pI2HJr34ip8z0eR62+IOTJyqQENQkrIX0OVqVuI4m15JIGRQrhpWYjNcOiCIX1rEpqwa6+tG6auI+Wvc/kfyOEdt38iQBNL7ZBV4LJlmI9HWgbxapThE9W0CEE9e</CipherValue>
+              <CipherValue>xqAgbhb0Mmpwg/b6Eq5jzfsYWaCIrYSOrzztrnwbnop8tbpqHdPHzNQajdetk1chXlESZVyn9ap/3IMe3yuHnHbOY8olD1Uq2E/So/N8Qiu/u7pU/Na8VEzViOWspV1KijUFoFkf9spUF+ywU53y0k6h4B7P3bPVrZLHXBL6gmBrZKlUHQo2/STvtazeWMH3</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -988,8 +1009,8 @@ AND PS_CICLO_LECTIVO &lt;&gt; ' ';</property>
               <connections>
                 <connection
                   refId="Package\Tarea Flujo de datos\Designaciones Magix.Connections[IDbConnection]"
-                  connectionManagerID="{3409BB5F-5CD1-4CA4-89BA-08EF617F1F82}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[172.16.5.45.RRHH.MGXCONS]"
+                  connectionManagerID="{3409BB5F-5CD1-4CA4-89BA-08EF617F1F82}:invalid"
+                  connectionManagerRefId="{3409BB5F-5CD1-4CA4-89BA-08EF617F1F82}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -1863,8 +1884,8 @@ FROM RHFUN</property>
               <connections>
                 <connection
                   refId="Package\Tarea Flujo de datos\RHFUN.Connections[IDbConnection]"
-                  connectionManagerID="{3409BB5F-5CD1-4CA4-89BA-08EF617F1F82}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[172.16.5.45.RRHH.MGXCONS]"
+                  connectionManagerID="{3409BB5F-5CD1-4CA4-89BA-08EF617F1F82}:invalid"
+                  connectionManagerRefId="{3409BB5F-5CD1-4CA4-89BA-08EF617F1F82}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -2012,8 +2033,8 @@ ORDER BY NRO_FUN_MGX</property>
               <connections>
                 <connection
                   refId="Package\Tarea Flujo de datos\SYSADM PS_UCU_FUNCIONARIO.Connections[IDbConnection]"
-                  connectionManagerID="{B5BA7FE3-2F1E-43F7-8C8E-7AC20A82EF6F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[SourceConnectionAdoNET]"
+                  connectionManagerID="{B5BA7FE3-2F1E-43F7-8C8E-7AC20A82EF6F}:invalid"
+                  connectionManagerRefId="{B5BA7FE3-2F1E-43F7-8C8E-7AC20A82EF6F}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -2644,12 +2665,12 @@ ORDER BY NRO_FUN_MGX</property>
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos 1\Destino - DT_Curso.Inputs[Destination Input].ExternalColumns[DESCRIP]"
                       dataType="wstr"
-                      length="50"
+                      length="60"
                       name="DESCRIP" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos 1\Destino - DT_Curso.Inputs[Destination Input].ExternalColumns[DESCRIP_LARGA]"
                       dataType="wstr"
-                      length="100"
+                      length="200"
                       name="DESCRIP_LARGA" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos 1\Destino - DT_Curso.Inputs[Destination Input].ExternalColumns[CANT_HORAS]"
@@ -2681,7 +2702,7 @@ ORDER BY NRO_FUN_MGX</property>
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos 1\Destino - DT_Curso.Inputs[Destination Input].ExternalColumns[ESTADO]"
                       dataType="wstr"
-                      length="1"
+                      length="2"
                       name="ESTADO" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos 1\Destino - DT_Curso.Inputs[Destination Input].ExternalColumns[FECHA_EFECTIVA_FIN]"
@@ -3761,8 +3782,8 @@ AND PS_CICLO_LECTIVO &lt;&gt; ' ';</property>
               <connections>
                 <connection
                   refId="Package\Tarea Flujo de datos 2\Designaciones Magix 1.Connections[IDbConnection]"
-                  connectionManagerID="{3409BB5F-5CD1-4CA4-89BA-08EF617F1F82}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[172.16.5.45.RRHH.MGXCONS]"
+                  connectionManagerID="{3409BB5F-5CD1-4CA4-89BA-08EF617F1F82}:invalid"
+                  connectionManagerRefId="{3409BB5F-5CD1-4CA4-89BA-08EF617F1F82}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -5265,8 +5286,8 @@ AND PS_CICLO_LECTIVO &lt;&gt; ' ';</property>
               <connections>
                 <connection
                   refId="Package\Tarea Flujo de datos Designaciones Magix\Designaciones Magix.Connections[IDbConnection]"
-                  connectionManagerID="{3409BB5F-5CD1-4CA4-89BA-08EF617F1F82}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[172.16.5.45.RRHH.MGXCONS]"
+                  connectionManagerID="{3409BB5F-5CD1-4CA4-89BA-08EF617F1F82}:invalid"
+                  connectionManagerRefId="{3409BB5F-5CD1-4CA4-89BA-08EF617F1F82}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -5472,8 +5493,8 @@ Order by NRO_FUN_MGX</property>
               <connections>
                 <connection
                   refId="Package\Tarea Flujo de datos Designaciones Magix\EMPLID desde PS_UCU_FUNCIONARIO.Connections[IDbConnection]"
-                  connectionManagerID="{B5BA7FE3-2F1E-43F7-8C8E-7AC20A82EF6F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[SourceConnectionAdoNET]"
+                  connectionManagerID="{B5BA7FE3-2F1E-43F7-8C8E-7AC20A82EF6F}:invalid"
+                  connectionManagerRefId="{B5BA7FE3-2F1E-43F7-8C8E-7AC20A82EF6F}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -5661,8 +5682,8 @@ order by tipo_documento, nro_documento</property>
               <connections>
                 <connection
                   refId="Package\Tarea Flujo de datos Designaciones Magix\NroMagix.Connections[IDbConnection]"
-                  connectionManagerID="{3409BB5F-5CD1-4CA4-89BA-08EF617F1F82}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[172.16.5.45.RRHH.MGXCONS]"
+                  connectionManagerID="{3409BB5F-5CD1-4CA4-89BA-08EF617F1F82}:invalid"
+                  connectionManagerRefId="{3409BB5F-5CD1-4CA4-89BA-08EF617F1F82}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -7035,8 +7056,8 @@ FROM RHFUN</property>
               <connections>
                 <connection
                   refId="Package\Tarea Flujo Join tablas Alberto\RHFUN.Connections[IDbConnection]"
-                  connectionManagerID="{3409BB5F-5CD1-4CA4-89BA-08EF617F1F82}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[172.16.5.45.RRHH.MGXCONS]"
+                  connectionManagerID="{3409BB5F-5CD1-4CA4-89BA-08EF617F1F82}:invalid"
+                  connectionManagerRefId="{3409BB5F-5CD1-4CA4-89BA-08EF617F1F82}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -7184,8 +7205,8 @@ ORDER BY NRO_FUN_MGX</property>
               <connections>
                 <connection
                   refId="Package\Tarea Flujo Join tablas Alberto\SYSADM PS_UCU_FUNCIONARIO.Connections[IDbConnection]"
-                  connectionManagerID="{B5BA7FE3-2F1E-43F7-8C8E-7AC20A82EF6F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[SourceConnectionAdoNET]"
+                  connectionManagerID="{B5BA7FE3-2F1E-43F7-8C8E-7AC20A82EF6F}:invalid"
+                  connectionManagerRefId="{B5BA7FE3-2F1E-43F7-8C8E-7AC20A82EF6F}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -7787,65 +7808,25 @@ ORDER BY NRO_FUN_MGX</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="161,42"
-          Id="Package\Tarea Flujo de datos 1\Origen - Consulta"
-          TopLeft="25,5.5" />
-        <NodeLayout
           Size="200,42"
           Id="Package\Tarea Flujo de datos 1\Conversión de datos 0 - 0"
           TopLeft="5.50000000000003,107.5" />
         <NodeLayout
+          Size="161,42"
+          Id="Package\Tarea Flujo de datos 1\Origen - Consulta"
+          TopLeft="25,5.5" />
+        <NodeLayout
           Size="171,42"
           Id="Package\Tarea Flujo de datos 1\Destino - DT_Curso"
           TopLeft="20,209.5" />
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos 1.Paths[Salida de origen de OLE DB]"
-          TopLeft="105.5,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos 1.Paths[Salida de conversión de datos]"
-          TopLeft="105.5,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="113,42"
           Id="Package\Tarea Flujo de datos 1\Auditar"
           TopLeft="380.5,12.5" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\Tarea Flujo de datos 1\Pruebas log"
+          TopLeft="616.5,13.5" />
         <EdgeLayout
           Id="Package\Tarea Flujo de datos 1.Paths[Salida de error de origen de OLE DB]"
           TopLeft="186,30">
@@ -7870,10 +7851,28 @@ ORDER BY NRO_FUN_MGX</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="134,42"
-          Id="Package\Tarea Flujo de datos 1\Pruebas log"
-          TopLeft="616.5,13.5" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos 1.Paths[Salida de conversión de datos]"
+          TopLeft="105.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Tarea Flujo de datos 1.Paths[Salida de Auditar 1]"
           TopLeft="493.5,34">
@@ -7888,6 +7887,28 @@ ORDER BY NRO_FUN_MGX</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="115.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos 1.Paths[Salida de origen de OLE DB]"
+          TopLeft="105.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

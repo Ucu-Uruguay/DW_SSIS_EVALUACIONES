@@ -8,10 +8,13 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default
+		Runtime|Default = Runtime|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{07AFC2E8-C2C3-4595-BEBA-7F8251BD5EE4}.Development|Default.ActiveCfg = Development
 		{07AFC2E8-C2C3-4595-BEBA-7F8251BD5EE4}.Development|Default.Build.0 = Development
+		{07AFC2E8-C2C3-4595-BEBA-7F8251BD5EE4}.Runtime|Default.ActiveCfg = Runtime
+		{07AFC2E8-C2C3-4595-BEBA-7F8251BD5EE4}.Runtime|Default.Build.0 = Runtime
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
