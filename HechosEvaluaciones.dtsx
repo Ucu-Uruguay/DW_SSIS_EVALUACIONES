@@ -12,8 +12,8 @@
   DTS:ObjectName="HechosEvaluaciones"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="49"
-  DTS:VersionGUID="{164A6181-09C7-4DA3-95B9-A474C3B07B70}">
+  DTS:VersionBuild="66"
+  DTS:VersionGUID="{DFF00E81-AF8A-4A4B-A2A5-1D850C9E0B10}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -38,12 +38,12 @@
           DTS:ConnectionString="uid=UCU_GP;Dsn=Oracle_HRPROD;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="Vw39lPQgp7s="
-            IV="IrGjAo/klWBapa3snA951Q==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="gdE+UCDTwYo="
+            IV="laNVOScety4Hn6agsmyuIw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>IrGjAo/klWBapa3snA951fqCxB1ny5szMsJEPUKlLUgkGbmcEpCc9kxJy7gJKufAlMrvat8zDcCBBIWuJcC0Cvv014i8ELKbnBd5GiGmdxkDlV7IrinecY5/As7tvggy8r5faGlsCI/Ai4ZKrcrIQWRduUR1XTPk+clyUk8p1tA=</CipherValue>
+              <CipherValue>laNVOScety4Hn6agsmyuI39Uaj2j4YLl/aEdo1vFpDEvEtii/RLf7U1pLgYpwPXEs1Z3ynasIXTWCnbAOnUZWKVVwWZdq36gfzwbGKL0Fk+40uZL6VDAzWXYbsO6YVNTv6L9CnD8L3ti52xI+UrmmmPPogwKCblgf2GCaBvWMrU=</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -129,7 +129,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{2E470D37-F358-4656-AAF9-CB9F771E6C80}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE Evaluaciones_SUM" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE Evaluaciones_SUM&#xA;TRUNCATE TABLE EvaluacionesDocente_SUM&#xA;TRUNCATE TABLE Evaluaciones_PjeTot_SUM&#xA;TRUNCATE TABLE EvaluacionesDocenteGAcad_SUM" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -659,6 +659,1645 @@
               endId="Package\Sincro totales docentes alumnos\Columna derivada.Inputs[Entrada de columna derivada]"
               name="Salida de origen de OLE DB"
               startId="Package\Sincro totales docentes alumnos\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sumarizaciòn Doc-Ciclo-Clase"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{1EAECC92-4ECC-4DEA-A1CC-BC4F26333C4E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sumarizaciòn Doc-Ciclo-Clase"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Desde Evaluaciones_SUM"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select emplID_docente, ciclo_ID, clase_ID, clave_ciclo_clase, sum(totalpuntoopciones) TotalPuntos, sum(cantopciones) CantOpciones
+  FROM [DW_UCU].[dbo].[Evaluaciones_SUM]
+  GROUP BY emplID_docente, ciclo_ID, clase_ID, clave_ciclo_clase</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  connectionManagerRefId="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].Columns[emplID_docente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[emplID_docente]"
+                      length="11"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].Columns[emplID_docente]"
+                      name="emplID_docente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].Columns[ciclo_ID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[ciclo_ID]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].Columns[ciclo_ID]"
+                      name="ciclo_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].Columns[clase_ID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[clase_ID]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].Columns[clase_ID]"
+                      name="clase_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].Columns[clave_ciclo_clase]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[clave_ciclo_clase]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].Columns[clave_ciclo_clase]"
+                      name="clave_ciclo_clase"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].Columns[TotalPuntos]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[TotalPuntos]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].Columns[TotalPuntos]"
+                      name="TotalPuntos"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].Columns[CantOpciones]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[CantOpciones]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].Columns[CantOpciones]"
+                      name="CantOpciones"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[emplID_docente]"
+                      dataType="wstr"
+                      length="11"
+                      name="emplID_docente" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[ciclo_ID]"
+                      dataType="i2"
+                      name="ciclo_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[clase_ID]"
+                      dataType="i8"
+                      name="clase_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[clave_ciclo_clase]"
+                      dataType="numeric"
+                      name="clave_ciclo_clase"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[TotalPuntos]"
+                      dataType="r8"
+                      name="TotalPuntos" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[CantOpciones]"
+                      dataType="i4"
+                      name="CantOpciones" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de error de origen de OLE DB].Columns[emplID_docente]"
+                      dataType="wstr"
+                      length="11"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de error de origen de OLE DB].Columns[emplID_docente]"
+                      name="emplID_docente" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de error de origen de OLE DB].Columns[ciclo_ID]"
+                      dataType="i2"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de error de origen de OLE DB].Columns[ciclo_ID]"
+                      name="ciclo_ID" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de error de origen de OLE DB].Columns[clase_ID]"
+                      dataType="i8"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de error de origen de OLE DB].Columns[clase_ID]"
+                      name="clase_ID" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de error de origen de OLE DB].Columns[clave_ciclo_clase]"
+                      dataType="numeric"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de error de origen de OLE DB].Columns[clave_ciclo_clase]"
+                      name="clave_ciclo_clase"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de error de origen de OLE DB].Columns[TotalPuntos]"
+                      dataType="r8"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de error de origen de OLE DB].Columns[TotalPuntos]"
+                      name="TotalPuntos" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de error de origen de OLE DB].Columns[CantOpciones]"
+                      dataType="i4"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de error de origen de OLE DB].Columns[CantOpciones]"
+                      name="CantOpciones" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="EvaluacionesDocente_SUM"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[EvaluacionesDocente_SUM]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  connectionManagerRefId="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB].Columns[emplID_docente]"
+                      cachedDataType="wstr"
+                      cachedLength="11"
+                      cachedName="emplID_docente"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[emplID_docente]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].Columns[emplID_docente]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB].Columns[ciclo_ID]"
+                      cachedDataType="i2"
+                      cachedName="ciclo_ID"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[ciclo_ID]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].Columns[ciclo_ID]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB].Columns[clase_ID]"
+                      cachedDataType="i8"
+                      cachedName="clase_ID"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[clase_ID]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].Columns[clase_ID]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB].Columns[clave_ciclo_clase]"
+                      cachedDataType="numeric"
+                      cachedName="clave_ciclo_clase"
+                      cachedPrecision="10"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[clave_ciclo_clase]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].Columns[clave_ciclo_clase]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB].Columns[TotalPuntos]"
+                      cachedDataType="r8"
+                      cachedName="TotalPuntos"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[TotalPuntos]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].Columns[TotalPuntos]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB].Columns[CantOpciones]"
+                      cachedDataType="i4"
+                      cachedName="CantOpciones"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[CantOpciones]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB].Columns[CantOpciones]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[emplID_docente]"
+                      dataType="wstr"
+                      length="11"
+                      name="emplID_docente" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[ciclo_ID]"
+                      dataType="i2"
+                      name="ciclo_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[clase_ID]"
+                      dataType="i8"
+                      name="clase_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[clave_ciclo_clase]"
+                      dataType="numeric"
+                      name="clave_ciclo_clase"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[TotalPuntos]"
+                      dataType="r8"
+                      name="TotalPuntos" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[CantOpciones]"
+                      dataType="i4"
+                      name="CantOpciones" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Sumarizaciòn Doc-Ciclo-Clase.Paths[Salida de origen de OLE DB]"
+              endId="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{26DEAFED-C7E2-4116-891B-5561B6FBA91F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sumarizaciòn Doc-Ciclo-Clase-GAcad"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="EvaluacionesDocenteGAcad_SUM"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[EvaluacionesDocenteGAcad_SUM]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  connectionManagerRefId="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].Columns[emplID_docente]"
+                      cachedDataType="wstr"
+                      cachedLength="11"
+                      cachedName="emplID_docente"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[emplID_docente]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[emplID_docente]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].Columns[ciclo_ID]"
+                      cachedDataType="i2"
+                      cachedName="ciclo_ID"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[ciclo_ID]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[ciclo_ID]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].Columns[clase_ID]"
+                      cachedDataType="i8"
+                      cachedName="clase_ID"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[clase_ID]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[clase_ID]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].Columns[clave_ciclo_clase]"
+                      cachedDataType="numeric"
+                      cachedName="clave_ciclo_clase"
+                      cachedPrecision="10"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[clave_ciclo_clase]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[clave_ciclo_clase]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].Columns[GRUPO_ACAD_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="GRUPO_ACAD_ID"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[GRUPO_ACAD_ID]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[GRUPO_ACAD_ID]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].Columns[TotalPuntos]"
+                      cachedDataType="r8"
+                      cachedName="TotalPuntos"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[TotalPuntos]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[TotalPuntos]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].Columns[CantOpciones]"
+                      cachedDataType="i4"
+                      cachedName="CantOpciones"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[CantOpciones]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[CantOpciones]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].Columns[Cant_Alumnos]"
+                      cachedDataType="i4"
+                      cachedName="Cant_Alumnos"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[CantAlumnos]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[Cant_Alumnos]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[emplID_docente]"
+                      dataType="wstr"
+                      length="11"
+                      name="emplID_docente" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[ciclo_ID]"
+                      dataType="i2"
+                      name="ciclo_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[clase_ID]"
+                      dataType="i8"
+                      name="clase_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[clave_ciclo_clase]"
+                      dataType="numeric"
+                      name="clave_ciclo_clase"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[GRUPO_ACAD_ID]"
+                      dataType="wstr"
+                      length="10"
+                      name="GRUPO_ACAD_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[TotalPuntos]"
+                      dataType="r8"
+                      name="TotalPuntos" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[CantOpciones]"
+                      dataType="i4"
+                      name="CantOpciones" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[CantAlumnos]"
+                      dataType="i4"
+                      name="CantAlumnos" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Sumarizo datos de Evaluaciones_PjeTot_SUM"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select emplID_docente, ciclo_ID, clase_ID, clave_ciclo_clase, GRUPO_ACAD_ID, count(distinct emplid_alumno) Cant_Alumnos, sum(totalpuntoopciones) TotalPuntos, sum(cantopciones) CantOpciones
+  FROM [DW_UCU].[dbo].[Evaluaciones_PjeTot_SUM]
+  GROUP BY emplID_docente, ciclo_ID, clase_ID, clave_ciclo_clase, GRUPO_ACAD_ID</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  connectionManagerRefId="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[emplID_docente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[emplID_docente]"
+                      length="11"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[emplID_docente]"
+                      name="emplID_docente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[ciclo_ID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[ciclo_ID]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[ciclo_ID]"
+                      name="ciclo_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[clase_ID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[clase_ID]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[clase_ID]"
+                      name="clase_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[clave_ciclo_clase]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[clave_ciclo_clase]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[clave_ciclo_clase]"
+                      name="clave_ciclo_clase"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[GRUPO_ACAD_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[GRUPO_ACAD_ID]"
+                      length="10"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[GRUPO_ACAD_ID]"
+                      name="GRUPO_ACAD_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[TotalPuntos]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[TotalPuntos]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[TotalPuntos]"
+                      name="TotalPuntos"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[CantOpciones]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[CantOpciones]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[CantOpciones]"
+                      name="CantOpciones"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[Cant_Alumnos]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Cant_Alumnos]"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].Columns[Cant_Alumnos]"
+                      name="Cant_Alumnos"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[emplID_docente]"
+                      dataType="wstr"
+                      length="11"
+                      name="emplID_docente" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[ciclo_ID]"
+                      dataType="i2"
+                      name="ciclo_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[clase_ID]"
+                      dataType="i8"
+                      name="clase_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[clave_ciclo_clase]"
+                      dataType="numeric"
+                      name="clave_ciclo_clase"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[GRUPO_ACAD_ID]"
+                      dataType="wstr"
+                      length="10"
+                      name="GRUPO_ACAD_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[TotalPuntos]"
+                      dataType="r8"
+                      name="TotalPuntos" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[CantOpciones]"
+                      dataType="i4"
+                      name="CantOpciones" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB].ExternalColumns[Cant_Alumnos]"
+                      dataType="i4"
+                      name="Cant_Alumnos" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[emplID_docente]"
+                      dataType="wstr"
+                      length="11"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[emplID_docente]"
+                      name="emplID_docente" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[ciclo_ID]"
+                      dataType="i2"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[ciclo_ID]"
+                      name="ciclo_ID" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[clase_ID]"
+                      dataType="i8"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[clase_ID]"
+                      name="clase_ID" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[clave_ciclo_clase]"
+                      dataType="numeric"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[clave_ciclo_clase]"
+                      name="clave_ciclo_clase"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[GRUPO_ACAD_ID]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[GRUPO_ACAD_ID]"
+                      name="GRUPO_ACAD_ID" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[Cant_Alumnos]"
+                      dataType="i4"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[Cant_Alumnos]"
+                      name="Cant_Alumnos" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[TotalPuntos]"
+                      dataType="r8"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[TotalPuntos]"
+                      name="TotalPuntos" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[CantOpciones]"
+                      dataType="i4"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[CantOpciones]"
+                      name="CantOpciones" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad.Paths[Salida de origen de OLE DB]"
+              endId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sumarizaciòn puntos respuesta puntaje global"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{FE38BED6-EF71-41B8-870F-A9AA0DAED493}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sumarizaciòn puntos respuesta puntaje global"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Sumarizaciòn puntos respuesta puntaje global\Columna derivada"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Columna derivada"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Sumarizaciòn puntos respuesta puntaje global\Columna derivada.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Columna derivada.Inputs[Entrada de columna derivada].Columns[clase_ID]"
+                      cachedDataType="i8"
+                      cachedName="clase_ID"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[clase_ID]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Columna derivada.Inputs[Entrada de columna derivada].Columns[ciclo_ID]"
+                      cachedDataType="i2"
+                      cachedName="ciclo_ID"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[ciclo_ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Sumarizaciòn puntos respuesta puntaje global\Columna derivada.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\Sumarizaciòn puntos respuesta puntaje global\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Columna derivada.Outputs[Salida de columna derivada].Columns[CLAVE_CICLO_CLASE]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Columna derivada.Outputs[Salida de columna derivada].Columns[CLAVE_CICLO_CLASE]"
+                      name="CLAVE_CICLO_CLASE"
+                      precision="10"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">(DT_NUMERIC,10,0)((DT_WSTR,4)#{Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[ciclo_ID]} + [RIGHT]("00" + (DT_WSTR,6)#{Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[clase_ID]},6))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_NUMERIC,10,0)((DT_WSTR,4)ciclo_ID + RIGHT("00" + (DT_WSTR,6)clase_ID,6))</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Sumarizaciòn puntos respuesta puntaje global\Columna derivada.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\Sumarizaciòn puntos respuesta puntaje global\Columna derivada.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Evaluaciones_PjeTot_SUM"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[Evaluaciones_PjeTot_SUM]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  connectionManagerRefId="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].Columns[EVALUACIONID]"
+                      cachedDataType="i2"
+                      cachedName="EVALUACIONID"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[EVALUACIONID]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONID]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].Columns[ciclo_ID]"
+                      cachedDataType="i2"
+                      cachedName="ciclo_ID"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[ciclo_ID]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[ciclo_ID]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].Columns[clase_ID]"
+                      cachedDataType="i8"
+                      cachedName="clase_ID"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[clase_ID]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[clase_ID]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].Columns[emplID_docente]"
+                      cachedDataType="wstr"
+                      cachedLength="11"
+                      cachedName="emplID_docente"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[emplID_docente]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[emplID_docente]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].Columns[emplID_alumno]"
+                      cachedDataType="wstr"
+                      cachedLength="11"
+                      cachedName="emplID_alumno"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[emplID_alumno]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[emplID_alumno]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].Columns[GRUPO_ACAD_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="GRUPO_ACAD_ID"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[GRUPO_ACAD_ID]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[GRUPO_ACAD_ID]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].Columns[TotalPuntoOpciones]"
+                      cachedDataType="r8"
+                      cachedName="TotalPuntoOpciones"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[TotalPuntoOpciones]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[TotalPuntoOpciones]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].Columns[CantOpciones]"
+                      cachedDataType="i4"
+                      cachedName="CantOpciones"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[CantOpciones]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[CantOpciones]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].Columns[EVALUACIONNOMBRE]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="EVALUACIONNOMBRE"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[EVALUACIONNOMBRE]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONNOMBRE]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].Columns[EVALUACIONFECHAINICIO]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="EVALUACIONFECHAINICIO"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[EVALUACIONFECHAINICIO]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONFECHAINICIO]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].Columns[EVALUACIONFECHAFIN]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="EVALUACIONFECHAFIN"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[EVALUACIONFECHAFIN]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONFECHAFIN]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].Columns[EVALUACIONACTIVA]"
+                      cachedDataType="i2"
+                      cachedName="EVALUACIONACTIVA"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[EVALUACIONACTIVA]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONACTIVA]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].Columns[EVALUACIONFECHAINICIOCLASE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="EVALUACIONFECHAINICIOCLASE"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[EVALUACIONFECHAINICIOCLASE]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONFECHAINICIOCLASE]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].Columns[EVALUACIONFECHAFINCLASE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="EVALUACIONFECHAFINCLASE"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[EVALUACIONFECHAFINCLASE]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONFECHAFINCLASE]" />
+                    <inputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].Columns[CLAVE_CICLO_CLASE]"
+                      cachedDataType="numeric"
+                      cachedName="CLAVE_CICLO_CLASE"
+                      cachedPrecision="10"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[CLAVE_CICLO_CLASE]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Columna derivada.Outputs[Salida de columna derivada].Columns[CLAVE_CICLO_CLASE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[EVALUACIONID]"
+                      dataType="i2"
+                      name="EVALUACIONID" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[ciclo_ID]"
+                      dataType="i2"
+                      name="ciclo_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[clase_ID]"
+                      dataType="i8"
+                      name="clase_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[emplID_docente]"
+                      dataType="wstr"
+                      length="11"
+                      name="emplID_docente" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[emplID_alumno]"
+                      dataType="wstr"
+                      length="11"
+                      name="emplID_alumno" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[GRUPO_ACAD_ID]"
+                      dataType="wstr"
+                      length="10"
+                      name="GRUPO_ACAD_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[TotalPuntoOpciones]"
+                      dataType="r8"
+                      name="TotalPuntoOpciones" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[CantOpciones]"
+                      dataType="i4"
+                      name="CantOpciones" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[EVALUACIONNOMBRE]"
+                      dataType="wstr"
+                      length="100"
+                      name="EVALUACIONNOMBRE" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[EVALUACIONFECHAINICIO]"
+                      dataType="dbTimeStamp"
+                      name="EVALUACIONFECHAINICIO" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[EVALUACIONFECHAFIN]"
+                      dataType="dbTimeStamp"
+                      name="EVALUACIONFECHAFIN" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[EVALUACIONACTIVA]"
+                      dataType="i2"
+                      name="EVALUACIONACTIVA" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[EVALUACIONFECHAINICIOCLASE]"
+                      dataType="dbTimeStamp"
+                      name="EVALUACIONFECHAINICIOCLASE" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[EVALUACIONFECHAFINCLASE]"
+                      dataType="dbTimeStamp"
+                      name="EVALUACIONFECHAFINCLASE" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB].ExternalColumns[CLAVE_CICLO_CLASE]"
+                      dataType="numeric"
+                      name="CLAVE_CICLO_CLASE"
+                      precision="10" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Sumarizar desde FT_Evaluaciones"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [EVALUACIONID], ciclo_ID, clase_ID,  emplID_docente, emplID_alumno, [GRUPO_ACAD_ID], SUM(OpcionValor) as TotalPuntoOpciones, COUNT(*) as CantOpciones
+	  ,[EVALUACIONNOMBRE]
+      ,[EVALUACIONFECHAINICIO]
+      ,[EVALUACIONFECHAFIN]
+      ,[EVALUACIONACTIVA]
+      ,[EVALUACIONFECHAINICIOCLASE]
+      ,[EVALUACIONFECHAFINCLASE]
+FROM 
+	(SELECT [CAID]
+		  ,FT.[EVALUACIONID]
+		  ,[EVALUACIONNOMBRE]
+		  ,[EVALUACIONFECHAINICIO]
+		  ,[EVALUACIONFECHAFIN]
+		  ,[EVALUACIONACTIVA]
+		  ,[EVALUACIONFECHAINICIOCLASE]
+		  ,[EVALUACIONFECHAFINCLASE]
+		  ,[EVALUACIONULTIMACARRERAID]
+		  ,[EVALUACIONPREGUNTAID]
+		  ,[PREGUNTATEXTO]
+		  ,[PREGUNTAREQUERIDA]
+		  ,[FORMASCALIFICACIONID]
+		  ,[AGRUPACIONID]
+		  ,[PREGUNTAORDEN]
+		  ,[ROLESDOCENTECODIGO]
+		  ,[FORMASCALIFICACIONNOMBRE]
+		  ,[FORMASCALIFICACIONTIPO]
+		  ,[FORMASCALIFICACIONOPCIONID]
+		  ,[FORMASCALIFICACIONOPCIONPOSICI]
+		  ,[OPCIONCODIGO]
+		  ,[OPCIONORDEN]
+		  ,[OPCIONDESCRIPCION]
+		  ,[OPCIONVALOR]
+		  ,FT.[EMPLID_DOCENTE]
+		  ,FT.[CAFECHA]
+		  ,FT.[CICLO_ID]
+		  ,FT.[CLASE_ID]
+		  ,FT.[ROL_DOCENTE_ID]
+		  ,FT.[EMPLID_ALUMNO]
+		  ,FT.[PREGUNTAID]
+		  ,FT.[RESPUESTACODIGO]
+		  ,FT.[RESPUESTATEXTO]
+		  ,car.[GRUPO_ACAD_ID]
+	FROM [DW_UCU].[dbo].[FT_Evaluaciones] FT 
+			left outer join [DW_UCU].[dbo].[DT_Evaluacion] DT_Eval on FT.evaluacionID= dt_Eval.[EVALUACIONID] 
+																	and FT.PreguntaID= dt_eval.[PREGUNTAID] 
+																	and ((ft.RESPUESTACODIGO&gt;0 and ft.RESPUESTACODIGO = dt_eval.OPCIONCODIGO) or (ft.RESPUESTACODIGO=0 and dt_eval.FORMASCALIFICACIONID=7))
+			left outer join [DW_UCU].[dbo].DT_Clase_Inst_Alumno cia on ft.CICLO_ID=cia.CICLO_ID and ft.CLASE_ID=cia.CLASE_ID and ft.EMPLID_ALUMNO=cia.ALUMNO_ID
+			left outer join [DW_UCU].[dbo].DT_Carrera car on cia.CARRERA_ID=car.CARRERA_ID) evaluaciones
+WHERE [FORMASCALIFICACIONID]=3
+GROUP BY evaluacionID, emplID_docente, ciclo_ID, clase_ID, GRUPO_ACAD_ID, emplID_alumno
+      ,[EVALUACIONNOMBRE]
+      ,[EVALUACIONFECHAINICIO]
+      ,[EVALUACIONFECHAFIN]
+      ,[EVALUACIONACTIVA]
+      ,[EVALUACIONFECHAINICIOCLASE]
+      ,[EVALUACIONFECHAFINCLASE]</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  connectionManagerRefId="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[EVALUACIONID]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONID]"
+                      name="EVALUACIONID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[ciclo_ID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[ciclo_ID]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[ciclo_ID]"
+                      name="ciclo_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[clase_ID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[clase_ID]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[clase_ID]"
+                      name="clase_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[emplID_docente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[emplID_docente]"
+                      length="11"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[emplID_docente]"
+                      name="emplID_docente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[emplID_alumno]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[emplID_alumno]"
+                      length="11"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[emplID_alumno]"
+                      name="emplID_alumno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[GRUPO_ACAD_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[GRUPO_ACAD_ID]"
+                      length="10"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[GRUPO_ACAD_ID]"
+                      name="GRUPO_ACAD_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[TotalPuntoOpciones]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[TotalPuntoOpciones]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[TotalPuntoOpciones]"
+                      name="TotalPuntoOpciones"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[CantOpciones]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[CantOpciones]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[CantOpciones]"
+                      name="CantOpciones"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONNOMBRE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[EVALUACIONNOMBRE]"
+                      length="100"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONNOMBRE]"
+                      name="EVALUACIONNOMBRE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONFECHAINICIO]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[EVALUACIONFECHAINICIO]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONFECHAINICIO]"
+                      name="EVALUACIONFECHAINICIO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONFECHAFIN]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[EVALUACIONFECHAFIN]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONFECHAFIN]"
+                      name="EVALUACIONFECHAFIN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONACTIVA]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[EVALUACIONACTIVA]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONACTIVA]"
+                      name="EVALUACIONACTIVA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONFECHAINICIOCLASE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[EVALUACIONFECHAINICIOCLASE]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONFECHAINICIOCLASE]"
+                      name="EVALUACIONFECHAINICIOCLASE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONFECHAFINCLASE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[EVALUACIONFECHAFINCLASE]"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].Columns[EVALUACIONFECHAFINCLASE]"
+                      name="EVALUACIONFECHAFINCLASE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[EVALUACIONID]"
+                      dataType="i2"
+                      name="EVALUACIONID" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[ciclo_ID]"
+                      dataType="i2"
+                      name="ciclo_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[clase_ID]"
+                      dataType="i8"
+                      name="clase_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[emplID_docente]"
+                      dataType="wstr"
+                      length="11"
+                      name="emplID_docente" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[emplID_alumno]"
+                      dataType="wstr"
+                      length="11"
+                      name="emplID_alumno" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[GRUPO_ACAD_ID]"
+                      dataType="wstr"
+                      length="10"
+                      name="GRUPO_ACAD_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[TotalPuntoOpciones]"
+                      dataType="r8"
+                      name="TotalPuntoOpciones" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[CantOpciones]"
+                      dataType="i4"
+                      name="CantOpciones" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[EVALUACIONNOMBRE]"
+                      dataType="wstr"
+                      length="100"
+                      name="EVALUACIONNOMBRE" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[EVALUACIONFECHAINICIO]"
+                      dataType="dbTimeStamp"
+                      name="EVALUACIONFECHAINICIO" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[EVALUACIONFECHAFIN]"
+                      dataType="dbTimeStamp"
+                      name="EVALUACIONFECHAFIN" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[EVALUACIONACTIVA]"
+                      dataType="i2"
+                      name="EVALUACIONACTIVA" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[EVALUACIONFECHAINICIOCLASE]"
+                      dataType="dbTimeStamp"
+                      name="EVALUACIONFECHAINICIOCLASE" />
+                    <externalMetadataColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB].ExternalColumns[EVALUACIONFECHAFINCLASE]"
+                      dataType="dbTimeStamp"
+                      name="EVALUACIONFECHAFINCLASE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[EVALUACIONID]"
+                      dataType="i2"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[EVALUACIONID]"
+                      name="EVALUACIONID" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[ciclo_ID]"
+                      dataType="i2"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[ciclo_ID]"
+                      name="ciclo_ID" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[clase_ID]"
+                      dataType="i8"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[clase_ID]"
+                      name="clase_ID" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[emplID_docente]"
+                      dataType="wstr"
+                      length="11"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[emplID_docente]"
+                      name="emplID_docente" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[emplID_alumno]"
+                      dataType="wstr"
+                      length="11"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[emplID_alumno]"
+                      name="emplID_alumno" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[GRUPO_ACAD_ID]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[GRUPO_ACAD_ID]"
+                      name="GRUPO_ACAD_ID" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[TotalPuntoOpciones]"
+                      dataType="r8"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[TotalPuntoOpciones]"
+                      name="TotalPuntoOpciones" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[CantOpciones]"
+                      dataType="i4"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[CantOpciones]"
+                      name="CantOpciones" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[EVALUACIONNOMBRE]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[EVALUACIONNOMBRE]"
+                      name="EVALUACIONNOMBRE" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[EVALUACIONFECHAINICIO]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[EVALUACIONFECHAINICIO]"
+                      name="EVALUACIONFECHAINICIO" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[EVALUACIONFECHAFIN]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[EVALUACIONFECHAFIN]"
+                      name="EVALUACIONFECHAFIN" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[EVALUACIONACTIVA]"
+                      dataType="i2"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[EVALUACIONACTIVA]"
+                      name="EVALUACIONACTIVA" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[EVALUACIONFECHAINICIOCLASE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[EVALUACIONFECHAINICIOCLASE]"
+                      name="EVALUACIONFECHAINICIOCLASE" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[EVALUACIONFECHAFINCLASE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[EVALUACIONFECHAFINCLASE]"
+                      name="EVALUACIONFECHAFINCLASE" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Sumarizaciòn puntos respuesta puntaje global.Paths[Salida de columna derivada]"
+              endId="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de columna derivada"
+              startId="Package\Sumarizaciòn puntos respuesta puntaje global\Columna derivada.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Sumarizaciòn puntos respuesta puntaje global.Paths[Salida de origen de OLE DB]"
+              endId="Package\Sumarizaciòn puntos respuesta puntaje global\Columna derivada.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones.Outputs[Salida de origen de OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -2726,6 +4365,30 @@ GROUP BY eva.EVALUACIONID</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 6"
       DTS:To="Package\Totales de clases por evaluacòn" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{59F0F9CB-AEEF-4AFD-8BFB-42C23D57E2DD}"
+      DTS:From="Package\Sumarizaciòn puntos respuestas"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 7"
+      DTS:To="Package\Sumarizaciòn Doc-Ciclo-Clase" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{75B607B3-1217-438D-BC96-D4D142E85B35}"
+      DTS:From="Package\Calculo Totales"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 8"
+      DTS:To="Package\Sumarizaciòn puntos respuesta puntaje global" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{8A8AA7D0-48A1-4554-8012-66B533452147}"
+      DTS:From="Package\Sumarizaciòn puntos respuesta puntaje global"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 9"
+      DTS:To="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
@@ -2738,11 +4401,11 @@ GROUP BY eva.EVALUACIONID</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="150,42"
           Id="Package\Calculo Totales"
-          TopLeft="335.5,119" />
+          TopLeft="246.5,110" />
         <NodeLayout
           Size="277,42"
           Id="Package\Consulta mayor fecha en FT_Evaluaciones"
@@ -2750,41 +4413,65 @@ GROUP BY eva.EVALUACIONID</property>
         <NodeLayout
           Size="231,42"
           Id="Package\Sincro totales docentes alumnos"
-          TopLeft="593.5,222" />
+          TopLeft="498.5,213" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Sumarizaciòn Doc-Ciclo-Clase"
+          TopLeft="843.5,80" />
+        <NodeLayout
+          Size="251,42"
+          Id="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad"
+          TopLeft="842.5,130.5" />
+        <NodeLayout
+          Size="296,42"
+          Id="Package\Sumarizaciòn puntos respuesta puntaje global"
+          TopLeft="498.5,133.5" />
         <NodeLayout
           Size="230,42"
           Id="Package\Sumarizaciòn puntos respuestas"
-          TopLeft="593.5,119" />
+          TopLeft="499.5,80" />
         <NodeLayout
           Size="176,42"
           Id="Package\Tarea Flujo de datos"
-          TopLeft="52.5,119" />
+          TopLeft="7.5,107" />
         <NodeLayout
           Size="144,42"
           Id="Package\Totales clases"
-          TopLeft="338.5,325" />
+          TopLeft="249.5,316" />
         <NodeLayout
           Size="229,42"
           Id="Package\Totales de clases por evaluacòn"
-          TopLeft="593.5,325" />
+          TopLeft="498.5,316" />
         <NodeLayout
           Size="210,42"
           Id="Package\Totales docentes y alumnos"
-          TopLeft="312.5,222" />
+          TopLeft="223.5,213" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="142.25,70">
+          TopLeft="144,70">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49"
+              EndConnector="-48.5,37"
               Start="0,0"
-              End="0,41.5">
+              End="-48.5,29.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.5" />
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="-4,18.5" />
+                  <mssgle:LineSegment
+                    End="-44.5,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-44.5,18.5"
+                    Point2="-48.5,18.5"
+                    Point3="-48.5,22.5" />
+                  <mssgle:LineSegment
+                    End="-48.5,29.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2795,18 +4482,18 @@ GROUP BY eva.EVALUACIONID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="228.5,140">
+          TopLeft="183.5,129.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="107,0"
+              EndConnector="63,0"
               Start="0,0"
-              End="99.5,0">
+              End="55.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="99.5,0" />
+                    End="55.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2817,18 +4504,30 @@ GROUP BY eva.EVALUACIONID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="485.5,140">
+          TopLeft="396.5,125.333333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="108,0"
+              EndConnector="103,-24.3333333333333"
               Start="0,0"
-              End="100.5,0">
+              End="95.5,-24.3333333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="100.5,0" />
+                    End="39.4678899082569,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.4678899082569,0"
+                    Point2="43.4678899082569,0"
+                    Point3="43.4678899082569,-4" />
+                  <mssgle:LineSegment
+                    End="43.4678899082569,-20.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.4678899082569,-20.3333333333333"
+                    Point2="43.4678899082569,-24.3333333333333"
+                    Point3="47.4678899082569,-24.3333333333333" />
+                  <mssgle:LineSegment
+                    End="95.5,-24.3333333333333" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2839,18 +4538,18 @@ GROUP BY eva.EVALUACIONID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 3]"
-          TopLeft="522.5,243">
+          TopLeft="433.5,234">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="71,0"
+              EndConnector="65,0"
               Start="0,0"
-              End="63.5,0">
+              End="57.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="63.5,0" />
+                    End="57.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2861,7 +4560,7 @@ GROUP BY eva.EVALUACIONID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 4]"
-          TopLeft="414,161">
+          TopLeft="325,152">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2883,7 +4582,7 @@ GROUP BY eva.EVALUACIONID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 5]"
-          TopLeft="414,264">
+          TopLeft="325,255">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2905,18 +4604,96 @@ GROUP BY eva.EVALUACIONID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 6]"
-          TopLeft="482.5,346">
+          TopLeft="393.5,337">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="111,0"
+              EndConnector="105,0"
               Start="0,0"
-              End="103.5,0">
+              End="97.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="103.5,0" />
+                    End="97.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 7]"
+          TopLeft="729.5,101">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114,0"
+              Start="0,0"
+              End="106.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="106.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 8]"
+          TopLeft="396.5,136.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="102,17.8333333333333"
+              Start="0,0"
+              End="94.5,17.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="39.045871559633,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.045871559633,0"
+                    Point2="43.045871559633,0"
+                    Point3="43.045871559633,4" />
+                  <mssgle:LineSegment
+                    End="43.045871559633,13.8333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.045871559633,13.8333333333333"
+                    Point2="43.045871559633,17.8333333333333"
+                    Point3="47.045871559633,17.8333333333333" />
+                  <mssgle:LineSegment
+                    End="94.5,17.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 9]"
+          TopLeft="794.5,153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="48,0"
+              Start="0,0"
+              End="40.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="40.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3018,6 +4795,211 @@ GROUP BY eva.EVALUACIONID</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\Sumarizaciòn Doc-Ciclo-Clase">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM"
+          TopLeft="34.5,48.5" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM"
+          TopLeft="322.5,50.5" />
+        <EdgeLayout
+          Id="Package\Sumarizaciòn Doc-Ciclo-Clase.Paths[Salida de origen de OLE DB]"
+          TopLeft="233.5,70.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="89,0"
+              Start="0,0"
+              End="81.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="81.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sumarizaciòn Doc-Ciclo-Clase\Desde Evaluaciones_SUM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sumarizaciòn Doc-Ciclo-Clase\EvaluacionesDocente_SUM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="293,42"
+          Id="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM"
+          TopLeft="28.5,104.5" />
+        <EdgeLayout
+          Id="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad.Paths[Salida de origen de OLE DB]"
+          TopLeft="149,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\EvaluacionesDocenteGAcad_SUM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad\Sumarizo datos de Evaluaciones_PjeTot_SUM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sumarizaciòn puntos respuesta puntaje global">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM"
+          TopLeft="20.5,205.5" />
+        <NodeLayout
+          Size="238,42"
+          Id="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Sumarizaciòn puntos respuesta puntaje global\Columna derivada"
+          TopLeft="36.5,98.5" />
+        <EdgeLayout
+          Id="Package\Sumarizaciòn puntos respuesta puntaje global.Paths[Salida de origen de OLE DB]"
+          TopLeft="121.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sumarizaciòn puntos respuesta puntaje global.Paths[Salida de columna derivada]"
+          TopLeft="120,140.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65"
+              Start="0,0"
+              End="0,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sumarizaciòn puntos respuesta puntaje global\Evaluaciones_PjeTot_SUM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sumarizaciòn puntos respuesta puntaje global\Sumarizar desde FT_Evaluaciones">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Sumarizaciòn puntos respuestas">
     <LayoutInfo>
       <GraphLayout
@@ -3110,7 +5092,7 @@ GROUP BY eva.EVALUACIONID</property>
     design-time-name="Package\Tarea Flujo de datos">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="196,42"
           Id="Package\Tarea Flujo de datos\Respuestas Evaluaciones"
@@ -3142,7 +5124,9 @@ GROUP BY eva.EVALUACIONID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3164,14 +5148,16 @@ GROUP BY eva.EVALUACIONID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
           Text="Transfiere los datos con CAFECHA posterior a la última CAFECHA transferida con anterioridad"
           ParentId="Package\Tarea Flujo de datos"
           FontInfo="{assembly:Null}"
-          Size="521,40"
+          Size="521,NaN"
           Id="ce0460bf-c00c-481a-8a2e-fd59c96be559"
           TopLeft="15,67" />
       </GraphLayout>
