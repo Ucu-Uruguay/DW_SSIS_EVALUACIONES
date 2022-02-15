@@ -13,8 +13,8 @@
   DTS:MaxErrorCount="0"
   DTS:ObjectName="CursosDesdeWizzard"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="109"
-  DTS:VersionGUID="{271C866D-AFB4-4DDE-9D99-5AAF02B30D04}">
+  DTS:VersionBuild="111"
+  DTS:VersionGUID="{1EC765FB-E7A9-4911-9943-F5C2CD77F104}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,12 +28,12 @@
           DTS:ConnectionString="Server=172.16.5.45;User ID=MGXCONS;Database=RRHH;DBName=RRHH;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="dFl7DXK6Czc="
-            IV="K38QuA27dOT08WCAnGUifg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="qXMeM4qTrU0="
+            IV="7fdJO3nAWZlGVuEdqQDtqw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>K38QuA27dOT08WCAnGUifhyYaQNh1YxvTz20zHVWrOKXZwCl+/C7YFlay3bPA2ltNKOpd/hdeaOZqHBdDKfAv5GXI2i9VJZdverfIRPyJjsS4R86c6/EtkoP7tivi31SNn+bgYR//UUsBlY/cF5MZ8UmLEUjosjF/ATgwqJ0jHibTi77EO/jMdaW1CO6d9RK</CipherValue>
+              <CipherValue>7fdJO3nAWZlGVuEdqQDtq5u5d8v18uvv4b4IoSF4TeLySTYLLnzpVXO4ODzX/LDWyYg0IBKVqIrK7/MkX3JsclzfYjLnoaqULV3o5OA0lRNDTkLSTVeGxZkv+Y3p6cja+c9NQqEl91jImdYfyLLahf3a/tHN9xu0oMqZgvg1UxTTfk41902rJYdO4imhXrGD</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -60,12 +60,12 @@
           DTS:ConnectionString="uid=UCU_GP;Dsn=Oracle_HRPROD;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="T8fIOU2zLFc="
-            IV="Fzbw/BAYoU5mEiDavdGVlw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="YkCCnYN7Ku4="
+            IV="I6TZmQx6OF5sFWG0mVLNXw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>Fzbw/BAYoU5mEiDavdGVl0rYFe6279QUonvkAYVsIBUB9+pJjMdSV/8mU2XWCu3eorLPY+qfopI+hQD7iXK1yRQdzeZo2B1u9EynGput2Ud72peaUvI4HwzogPWF5YxxDXFmqa7xiOF/kPhNLMiatgkty0L/KU9tH7EBTjwueDM=</CipherValue>
+              <CipherValue>I6TZmQx6OF5sFWG0mVLNX66XdhSvoH7H3RuErJ+orA85X0Onk30RxbiJQ780dpwYeg0VZXH1GC+W7zjbZevi/8r6EYKRiHeh/AAhXA5pfrCP1dvQrzXYw7IB+Sk/dcJ8E9k6Y/KZ+p39jJI8svDeuDVErad2rBFPfbFo+X5aq5U=</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -81,12 +81,12 @@
           DTS:ConnectionString="Data Source=PROD-UCUDBS10\POWERBI;User ID=rcalvo;Initial Catalog=DW_UCU;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="IQxIRtXRUxw="
-            IV="vOkZUBmwcPdwvx0Fp1CHeQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="2SeRe3oOiTw="
+            IV="vjCvs3I818qkPTF93mygXg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>vOkZUBmwcPdwvx0Fp1CHeTYGl2fe7eyurb+vae0KUQ6f9JDtSMT1qOxtCGH6fqlhSfBoBcow9ki6QZl1nJLmloeP2y49tjR1aBvVG4wOyS5VYs033ruPEI/pWVNZDy4WmiWHycjhReHRvnZEmebdbwgJ6K2NNMMvZKBsBwYYqBR+HIcGq/kUQXfMLeqY8RzC</CipherValue>
+              <CipherValue>vjCvs3I818qkPTF93mygXix/36l/Tdw4Dz1KN3rQG/uJcatEqjxeS6ME+Fym1U1EApkCzwIjMv9zWygcdaJreVBZvb+RZnvDYuOZxwMJMoSH/fT6V00pVFhRdVQtRILPMnCn8kyh2xvuiyTPMCLqQaueAvRWixuP4SyBMdpiAdCDBvHOwk3R1KzRnYvqvtNX</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -145,7 +145,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Alumnos Clase (Consulta producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="13">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -164,7 +164,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Campus (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="12">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9706,7 +9706,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Carreras (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="10">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9725,7 +9725,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Ciclos (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="11">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9744,7 +9744,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Ciclos Grado (Consulta Producciòn)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="13">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9763,7 +9763,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Clases (Consulta producciòn)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9782,7 +9782,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Cursos (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="10">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9801,7 +9801,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Definicion Evaluaciones (Produccion)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9820,7 +9820,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Designaciones docentes"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="11">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9839,7 +9839,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Docente (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="8">
+      DTS:ThreadHint="12">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9877,7 +9877,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Evaluaciones (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9916,7 +9916,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Rol docente (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="8">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -10056,118 +10056,118 @@ ORDER BY ciclo_id</property>
         <NodeLayout
           Size="254,42"
           Id="Package\Alumnos Clase (Consulta producción)"
-          TopLeft="9.5,764.571295853905" />
+          TopLeft="9.5,810.571295853905" />
         <NodeLayout
           Size="223,42"
           Id="Package\Campus (Consulta Producción)"
-          TopLeft="9.5,227.064898869247" />
+          TopLeft="9.5,273.064898869247" />
         <NodeLayout
           Size="167,42"
           Id="Package\Carga DT_Campus"
-          TopLeft="330.5,227.064898869247" />
+          TopLeft="330.5,273.064898869247" />
         <NodeLayout
           Size="164,42"
           Id="Package\Carga DT_Carrera"
-          TopLeft="330.5,92.6882996230823" />
+          TopLeft="330.5,138.688299623082" />
         <NodeLayout
           Size="151,42"
           Id="Package\Carga DT_Ciclo"
-          TopLeft="330.5,294.253198492329" />
+          TopLeft="330.5,340.253198492329" />
         <NodeLayout
           Size="219,42"
           Id="Package\Carga DT_Clase_Inst_Alumno"
-          TopLeft="330.5,764.571295853905" />
+          TopLeft="330.5,810.571295853905" />
         <NodeLayout
           Size="222,42"
           Id="Package\Carga DT_Clase_Inst_Docente"
-          TopLeft="330.5,697.382996230823" />
+          TopLeft="330.5,743.382996230823" />
         <NodeLayout
           Size="180,42"
           Id="Package\Carga DT_clases_inst"
-          TopLeft="330.5,630.19469660774" />
+          TopLeft="330.5,676.19469660774" />
         <NodeLayout
           Size="156,42"
           Id="Package\Carga DT_Curso"
-          TopLeft="330.5,25.5" />
+          TopLeft="330.5,71.5" />
         <NodeLayout
           Size="230,42"
           Id="Package\Carga DT_Designacion_Docente"
-          TopLeft="330.5,898.947895100069" />
+          TopLeft="330.5,944.947895100069" />
         <NodeLayout
           Size="168,42"
           Id="Package\Carga DT_Docente"
-          TopLeft="330.5,495.818097361576" />
+          TopLeft="330.5,541.818097361576" />
         <NodeLayout
           Size="179,42"
           Id="Package\Carga DT_Evaluacion"
-          TopLeft="330.5,563.006396984658" />
+          TopLeft="330.5,609.006396984658" />
         <NodeLayout
           Size="214,42"
           Id="Package\Carga DT_Grupo_Academico"
-          TopLeft="330.5,159.876599246165" />
+          TopLeft="330.5,205.876599246165" />
         <NodeLayout
           Size="188,42"
           Id="Package\Carga DT_Rol_Docente"
-          TopLeft="330.5,428.629797738494" />
+          TopLeft="330.5,474.629797738494" />
         <NodeLayout
           Size="272,42"
           Id="Package\Carga DW_DEFINICION_EVALUACIONES"
-          TopLeft="330.5,831.759595476987" />
+          TopLeft="330.5,877.759595476987" />
         <NodeLayout
           Size="183,42"
           Id="Package\Carga FT_Ciclo_Grado"
-          TopLeft="330.5,361.441498115411" />
+          TopLeft="330.5,407.441498115411" />
         <NodeLayout
           Size="225,42"
           Id="Package\Carreras (Consulta Producción)"
-          TopLeft="9.5,92.6882996230823" />
+          TopLeft="9.5,138.688299623082" />
         <NodeLayout
           Size="212,42"
           Id="Package\Ciclos (Consulta Producción)"
-          TopLeft="9.5,294.253198492329" />
+          TopLeft="9.5,340.253198492329" />
         <NodeLayout
           Size="244,42"
           Id="Package\Ciclos Grado (Consulta Producciòn)"
-          TopLeft="9.5,361.441498115411" />
+          TopLeft="9.5,407.441498115411" />
         <NodeLayout
           Size="215,42"
           Id="Package\Clases (Consulta producciòn)"
-          TopLeft="9.5,630.19469660774" />
+          TopLeft="9.5,676.19469660774" />
         <NodeLayout
           Size="217,42"
           Id="Package\Cursos (Consulta Producción)"
-          TopLeft="9.5,25.5" />
+          TopLeft="9.5,71.5" />
         <NodeLayout
           Size="252,42"
           Id="Package\Definicion Evaluaciones (Produccion)"
-          TopLeft="9.5,831.759595476987" />
+          TopLeft="9.5,877.759595476987" />
         <NodeLayout
           Size="191,42"
           Id="Package\Designaciones docentes"
-          TopLeft="9.5,898.947895100069" />
+          TopLeft="9.5,944.947895100069" />
         <NodeLayout
           Size="224,42"
           Id="Package\Docente (Consulta Producción)"
-          TopLeft="9.5,495.818097361576" />
+          TopLeft="9.5,541.818097361576" />
         <NodeLayout
           Size="257,42"
           Id="Package\Docentes Clase (Consulta producciòn)"
-          TopLeft="9.5,697.382996230823" />
+          TopLeft="9.5,743.382996230823" />
         <NodeLayout
           Size="246,42"
           Id="Package\Evaluaciones (Consulta Producción)"
-          TopLeft="9.5,563.006396984658" />
+          TopLeft="9.5,609.006396984658" />
         <NodeLayout
           Size="246,42"
           Id="Package\Grupo Academico (DW_FACULTAD)"
-          TopLeft="9.5,159.876599246165" />
+          TopLeft="9.5,205.876599246165" />
         <NodeLayout
           Size="241,42"
           Id="Package\Rol docente (Consulta Producción)"
-          TopLeft="9.5,428.629797738494" />
+          TopLeft="9.5,474.629797738494" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="226.5,46.5">
+          TopLeft="226.5,92.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10189,7 +10189,7 @@ ORDER BY ciclo_id</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="234.5,113.688299623082">
+          TopLeft="234.5,159.688299623082">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10211,7 +10211,7 @@ ORDER BY ciclo_id</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 10]"
-          TopLeft="221.5,315.253198492329">
+          TopLeft="221.5,361.253198492329">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10233,7 +10233,7 @@ ORDER BY ciclo_id</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 11]"
-          TopLeft="250.5,449.629797738494">
+          TopLeft="250.5,495.629797738494">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10255,7 +10255,7 @@ ORDER BY ciclo_id</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 12]"
-          TopLeft="233.5,516.818097361576">
+          TopLeft="233.5,562.818097361576">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10277,7 +10277,7 @@ ORDER BY ciclo_id</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 13]"
-          TopLeft="253.5,382.441498115411">
+          TopLeft="253.5,428.441498115411">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10299,7 +10299,7 @@ ORDER BY ciclo_id</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="255.5,180.876599246165">
+          TopLeft="255.5,226.876599246165">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10321,7 +10321,7 @@ ORDER BY ciclo_id</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 3]"
-          TopLeft="255.5,584.006396984658">
+          TopLeft="255.5,630.006396984658">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10343,7 +10343,7 @@ ORDER BY ciclo_id</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 4]"
-          TopLeft="224.5,651.19469660774">
+          TopLeft="224.5,697.19469660774">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10365,7 +10365,7 @@ ORDER BY ciclo_id</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 5]"
-          TopLeft="266.5,718.382996230823">
+          TopLeft="266.5,764.382996230823">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10387,7 +10387,7 @@ ORDER BY ciclo_id</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 6]"
-          TopLeft="263.5,785.571295853905">
+          TopLeft="263.5,831.571295853905">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10409,7 +10409,7 @@ ORDER BY ciclo_id</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 7]"
-          TopLeft="261.5,852.759595476987">
+          TopLeft="261.5,898.759595476987">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10431,7 +10431,7 @@ ORDER BY ciclo_id</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 8]"
-          TopLeft="200.5,919.947895100069">
+          TopLeft="200.5,965.947895100069">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10453,7 +10453,7 @@ ORDER BY ciclo_id</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 9]"
-          TopLeft="232.5,248.064898869247">
+          TopLeft="232.5,294.064898869247">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -10473,6 +10473,13 @@ ORDER BY ciclo_id</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="Solo para usar desde Visual Studio el que està corriendo en los jobs de SQLServer es el de nombre DimsEvalDoc.dtsx"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="645,60"
+          Id="a5b7842b-05ea-4c1e-8690-de6778401ecf"
+          TopLeft="12,13" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -11504,6 +11511,14 @@ ORDER BY ciclo_id</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga DT_Evaluacion\Origen de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Carga DT_Grupo_Academico">
     <LayoutInfo>
@@ -11875,14 +11890,6 @@ ORDER BY ciclo_id</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Carga FT_Ciclo_Grado\Origen PS_TERM_TBL">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga DT_Evaluacion\Origen de ADO NET">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

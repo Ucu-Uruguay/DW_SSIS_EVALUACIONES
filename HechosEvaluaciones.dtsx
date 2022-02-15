@@ -12,8 +12,8 @@
   DTS:ObjectName="HechosEvaluaciones"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="66"
-  DTS:VersionGUID="{DFF00E81-AF8A-4A4B-A2A5-1D850C9E0B10}">
+  DTS:VersionBuild="67"
+  DTS:VersionGUID="{D25AB2E1-01E0-4746-954E-0B1456791C0A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -38,12 +38,12 @@
           DTS:ConnectionString="uid=UCU_GP;Dsn=Oracle_HRPROD;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="gdE+UCDTwYo="
-            IV="laNVOScety4Hn6agsmyuIw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="YYdwTrOBxr4="
+            IV="dFIllsF3WQoQAuVobsqJfQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>laNVOScety4Hn6agsmyuI39Uaj2j4YLl/aEdo1vFpDEvEtii/RLf7U1pLgYpwPXEs1Z3ynasIXTWCnbAOnUZWKVVwWZdq36gfzwbGKL0Fk+40uZL6VDAzWXYbsO6YVNTv6L9CnD8L3ti52xI+UrmmmPPogwKCblgf2GCaBvWMrU=</CipherValue>
+              <CipherValue>dFIllsF3WQoQAuVobsqJfQ0+9Ad4uXZ3rs/pDloAoyUElPeF691VoNonbahbXkP2/or+PHjth2s/56C/HhKV0sxoRWU9mPOPql/PMV8tOwfDoG9e9DS87EdwUJgdddobJt9f9aXGkOYPAuFNbKHEqs/H9BOP2ahfc00FPXLdLcE=</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -4405,50 +4405,50 @@ GROUP BY eva.EVALUACIONID</property>
         <NodeLayout
           Size="150,42"
           Id="Package\Calculo Totales"
-          TopLeft="246.5,110" />
+          TopLeft="246.5,149" />
         <NodeLayout
           Size="277,42"
           Id="Package\Consulta mayor fecha en FT_Evaluaciones"
-          TopLeft="5.5,28" />
+          TopLeft="5.5,67" />
         <NodeLayout
           Size="231,42"
           Id="Package\Sincro totales docentes alumnos"
-          TopLeft="498.5,213" />
+          TopLeft="498.5,252" />
         <NodeLayout
           Size="217,42"
           Id="Package\Sumarizaciòn Doc-Ciclo-Clase"
-          TopLeft="843.5,80" />
+          TopLeft="843.5,119" />
         <NodeLayout
           Size="251,42"
           Id="Package\Sumarizaciòn Doc-Ciclo-Clase-GAcad"
-          TopLeft="842.5,130.5" />
+          TopLeft="842.5,169.5" />
         <NodeLayout
           Size="296,42"
           Id="Package\Sumarizaciòn puntos respuesta puntaje global"
-          TopLeft="498.5,133.5" />
+          TopLeft="498.5,172.5" />
         <NodeLayout
           Size="230,42"
           Id="Package\Sumarizaciòn puntos respuestas"
-          TopLeft="499.5,80" />
+          TopLeft="499.5,119" />
         <NodeLayout
           Size="176,42"
           Id="Package\Tarea Flujo de datos"
-          TopLeft="7.5,107" />
+          TopLeft="7.5,146" />
         <NodeLayout
           Size="144,42"
           Id="Package\Totales clases"
-          TopLeft="249.5,316" />
+          TopLeft="249.5,355" />
         <NodeLayout
           Size="229,42"
           Id="Package\Totales de clases por evaluacòn"
-          TopLeft="498.5,316" />
+          TopLeft="498.5,355" />
         <NodeLayout
           Size="210,42"
           Id="Package\Totales docentes y alumnos"
-          TopLeft="223.5,213" />
+          TopLeft="223.5,252" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="144,70">
+          TopLeft="144,109">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4482,7 +4482,7 @@ GROUP BY eva.EVALUACIONID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="183.5,129.5">
+          TopLeft="183.5,168.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4504,7 +4504,7 @@ GROUP BY eva.EVALUACIONID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="396.5,125.333333333333">
+          TopLeft="396.5,164.333333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4538,7 +4538,7 @@ GROUP BY eva.EVALUACIONID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 3]"
-          TopLeft="433.5,234">
+          TopLeft="433.5,273">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4560,7 +4560,7 @@ GROUP BY eva.EVALUACIONID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 4]"
-          TopLeft="325,152">
+          TopLeft="325,191">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4582,7 +4582,7 @@ GROUP BY eva.EVALUACIONID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 5]"
-          TopLeft="325,255">
+          TopLeft="325,294">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4604,7 +4604,7 @@ GROUP BY eva.EVALUACIONID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 6]"
-          TopLeft="393.5,337">
+          TopLeft="393.5,376">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4626,7 +4626,7 @@ GROUP BY eva.EVALUACIONID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 7]"
-          TopLeft="729.5,101">
+          TopLeft="729.5,140">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4648,7 +4648,7 @@ GROUP BY eva.EVALUACIONID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 8]"
-          TopLeft="396.5,136.666666666667">
+          TopLeft="396.5,175.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4682,7 +4682,7 @@ GROUP BY eva.EVALUACIONID</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 9]"
-          TopLeft="794.5,153">
+          TopLeft="794.5,192">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4702,6 +4702,13 @@ GROUP BY eva.EVALUACIONID</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="Solo para usar desde Visual Studio el que està corriendo en los jobs de SQLServer es el de nombre HechosEvalDoc.dtsx"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="670,60"
+          Id="df9e5c1f-cb68-4648-b499-da859fbb2c7f"
+          TopLeft="14,4" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
