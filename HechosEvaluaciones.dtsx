@@ -12,8 +12,8 @@
   DTS:ObjectName="HechosEvaluaciones"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="67"
-  DTS:VersionGUID="{D25AB2E1-01E0-4746-954E-0B1456791C0A}">
+  DTS:VersionBuild="68"
+  DTS:VersionGUID="{5FCD0900-F8EE-49D2-804B-432FED5F9FC9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -38,12 +38,12 @@
           DTS:ConnectionString="uid=UCU_GP;Dsn=Oracle_HRPROD;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="YYdwTrOBxr4="
-            IV="dFIllsF3WQoQAuVobsqJfQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="m+8V7CrlSPE="
+            IV="v2Fovq+4yPMIWiu7LR+v3A==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>dFIllsF3WQoQAuVobsqJfQ0+9Ad4uXZ3rs/pDloAoyUElPeF691VoNonbahbXkP2/or+PHjth2s/56C/HhKV0sxoRWU9mPOPql/PMV8tOwfDoG9e9DS87EdwUJgdddobJt9f9aXGkOYPAuFNbKHEqs/H9BOP2ahfc00FPXLdLcE=</CipherValue>
+              <CipherValue>v2Fovq+4yPMIWiu7LR+v3Bp4AQjETB7dt8YUqdfK1Jxw1WA9/wWDG1X1yYSgHp6EtyncC8QFzBn8VfG9AJ18ValHMHo1sZo4+cNKXg8eTSErcw2allOxc1bT01Ye+jFJxPLVZxXyeGRy3WsmbQkoIAYamoD/t8wKd2SbTPlU2rc=</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -2722,7 +2722,8 @@ from (SELECT  [CAID]
       ,FT.[RESPUESTATEXTO]
   FROM [DW_UCU].[dbo].[FT_Evaluaciones] FT left outer join [DW_UCU].[dbo].[DT_Evaluacion] DT_Eval on FT.evaluacionID= dt_Eval.[EVALUACIONID] 
 	and FT.PreguntaID= dt_eval.[PREGUNTAID] 
-	and ((ft.RESPUESTACODIGO&gt;0 and ft.RESPUESTACODIGO = dt_eval.OPCIONCODIGO) or (ft.RESPUESTACODIGO=0 and dt_eval.FORMASCALIFICACIONID=7))) evaluaciones
+	and ((ft.RESPUESTACODIGO&gt;0 and ft.RESPUESTACODIGO = dt_eval.OPCIONCODIGO) or (ft.RESPUESTACODIGO=0 and dt_eval.FORMASCALIFICACIONID=7))
+  WHERE FORMASCALIFICACIONTIPO='Opciones') evaluaciones
 GROUP BY evaluacionID, emplID_docente, ciclo_ID, clase_ID, emplID_alumno	  ,[EVALUACIONNOMBRE]
       ,[EVALUACIONFECHAINICIO]
       ,[EVALUACIONFECHAFIN]
@@ -4706,7 +4707,7 @@ GROUP BY eva.EVALUACIONID</property>
           Text="Solo para usar desde Visual Studio el que està corriendo en los jobs de SQLServer es el de nombre HechosEvalDoc.dtsx"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="670,60"
+          Size="670,40"
           Id="df9e5c1f-cb68-4648-b499-da859fbb2c7f"
           TopLeft="14,4" />
       </GraphLayout>
@@ -4716,7 +4717,7 @@ GROUP BY eva.EVALUACIONID</property>
     design-time-name="Package\Sincro totales docentes alumnos">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="205,42"
           Id="Package\Sincro totales docentes alumnos\Evaluaciones_Doc_Al_SUM"
@@ -4748,9 +4749,7 @@ GROUP BY eva.EVALUACIONID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4772,9 +4771,7 @@ GROUP BY eva.EVALUACIONID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5010,7 +5007,7 @@ GROUP BY eva.EVALUACIONID</property>
     design-time-name="Package\Sumarizaciòn puntos respuestas">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="166,42"
           Id="Package\Sumarizaciòn puntos respuestas\Evaluaciones_SUM"
@@ -5042,9 +5039,7 @@ GROUP BY eva.EVALUACIONID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5066,9 +5061,7 @@ GROUP BY eva.EVALUACIONID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5099,7 +5092,7 @@ GROUP BY eva.EVALUACIONID</property>
     design-time-name="Package\Tarea Flujo de datos">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="196,42"
           Id="Package\Tarea Flujo de datos\Respuestas Evaluaciones"
@@ -5131,9 +5124,7 @@ GROUP BY eva.EVALUACIONID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5155,16 +5146,14 @@ GROUP BY eva.EVALUACIONID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
           Text="Transfiere los datos con CAFECHA posterior a la última CAFECHA transferida con anterioridad"
           ParentId="Package\Tarea Flujo de datos"
           FontInfo="{assembly:Null}"
-          Size="521,NaN"
+          Size="521,40"
           Id="ce0460bf-c00c-481a-8a2e-fd59c96be559"
           TopLeft="15,67" />
       </GraphLayout>
@@ -5195,7 +5184,7 @@ GROUP BY eva.EVALUACIONID</property>
     design-time-name="Package\Totales de clases por evaluacòn">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="202,42"
           Id="Package\Totales de clases por evaluacòn\Evaluaciones_Clases_SUM"
@@ -5243,9 +5232,7 @@ GROUP BY eva.EVALUACIONID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5279,9 +5266,7 @@ GROUP BY eva.EVALUACIONID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5303,9 +5288,7 @@ GROUP BY eva.EVALUACIONID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

@@ -12,8 +12,8 @@
   DTS:ObjectName="HechosEvalDoc"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{D10ECAA7-0AF6-43DE-B1CF-D8CADC5A147B}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{3423BA47-FC05-4381-9A7D-C022814DA098}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -38,12 +38,12 @@
           DTS:ConnectionString="Data Source=HRPROD;User ID=UCU_GP;Provider=OraOLEDB.Oracle.1;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="TgwSCH6PJBo="
-            IV="tINFtKCFe2DbduunNFrb5g==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="dmhdDoKvkr0="
+            IV="VEyXxxzCJhGgLbHPGXW8Eg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>tINFtKCFe2DbduunNFrb5uP8t2JfkNeM++LEMLJgdPhx+AFGjMma0lwVUBvoydKqV2lnc80o2M6QacYDtriCu8lZe1BC0Ahz3K/Ooe42Mqs56DEYHgYSopqr+af7xa1D/vRJYVv+WF02v2sWLDJ+1E7uM+A2bzl78Lb3f6rlvzyKfh31prKmT9UtOpXHVwzg</CipherValue>
+              <CipherValue>VEyXxxzCJhGgLbHPGXW8EpkwG7PQIETLeeAnW2dBKKhXiWq6Wv4ft9khJ1F1RiUoG/kRYMaOlLuEEKv2Fx9wdoJyX9+zBqSEGqnrEoQwjR47hU1TbREODlBmcu++Hh9jNdLrcRYYlePjM/7NFfdzXgjheYCL9lg08BD+PCs9t7Jnk8QusAn/Yjm1sy5lGggy</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -3106,7 +3106,8 @@ from (SELECT  [CAID]
       ,FT.[RESPUESTATEXTO]
   FROM [DW_UCU].[dbo].[FT_Evaluaciones] FT left outer join [DW_UCU].[dbo].[DT_Evaluacion] DT_Eval on FT.evaluacionID= dt_Eval.[EVALUACIONID] 
 	and FT.PreguntaID= dt_eval.[PREGUNTAID] 
-	and ((ft.RESPUESTACODIGO&gt;0 and ft.RESPUESTACODIGO = dt_eval.OPCIONCODIGO) or (ft.RESPUESTACODIGO=0 and dt_eval.FORMASCALIFICACIONID=7))) evaluaciones
+	and ((ft.RESPUESTACODIGO&gt;0 and ft.RESPUESTACODIGO = dt_eval.OPCIONCODIGO) or (ft.RESPUESTACODIGO=0 and dt_eval.FORMASCALIFICACIONID=7))
+WHERE FORMASCALIFICACIONTIPO='Opciones') evaluaciones
 GROUP BY evaluacionID, emplID_docente, ciclo_ID, clase_ID, emplID_alumno	  ,[EVALUACIONNOMBRE]
       ,[EVALUACIONFECHAINICIO]
       ,[EVALUACIONFECHAFIN]
@@ -4115,6 +4116,10 @@ GROUP BY eva.EVALUACIONID</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="150,42"
+          Id="Package\Calculo Totales"
+          TopLeft="297,83" />
+        <NodeLayout
           Size="277,42"
           Id="Package\Consulta mayor fecha en FT_Evaluaciones"
           TopLeft="5.5,5.5" />
@@ -4122,32 +4127,6 @@ GROUP BY eva.EVALUACIONID</property>
           Size="178,42"
           Id="Package\ETL FT_Evaluaciones"
           TopLeft="48.5,79.5" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="140.75,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,32"
-              Start="0,0"
-              End="0,24.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Calculo Totales"
-          TopLeft="297,83" />
         <NodeLayout
           Size="231,42"
           Id="Package\Sincro totales docentes alumnos"
@@ -4180,6 +4159,50 @@ GROUP BY eva.EVALUACIONID</property>
           Size="210,42"
           Id="Package\Totales docentes y alumnos"
           TopLeft="274,186" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="140.75,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="226.5,102.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="70.5,0"
+              Start="0,0"
+              End="63,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="63,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
           TopLeft="447,98.333333333333">
@@ -4372,28 +4395,6 @@ GROUP BY eva.EVALUACIONID</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="40.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="226.5,102.25">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="70.5,0"
-              Start="0,0"
-              End="63,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="63,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
