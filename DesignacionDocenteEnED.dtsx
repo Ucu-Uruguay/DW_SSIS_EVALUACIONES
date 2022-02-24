@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="91"
-  DTS:VersionGUID="{6D1A651D-AFC7-489E-9A43-9A2F17551DB4}">
+  DTS:VersionBuild="92"
+  DTS:VersionGUID="{46384D5C-557F-4099-9CFF-8BDD6F720E0D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -38,12 +38,12 @@
           DTS:ConnectionString="Data Source=HRPROD;User ID=UCU_GP;Provider=OraOLEDB.Oracle.1;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="+mCfrZZ26zE="
-            IV="qpu7gDkNWW9hOwI/ja6awA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="7R2NgdQ83BY="
+            IV="gHNNoE0njqy/mtOPLdP7hw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>qpu7gDkNWW9hOwI/ja6awAc7K9RkuuzIvWYo9bjSY029HtrwOiFH2n/lQnTl3lPROZURnGMJxDdHv0T4kS41T9JtZSsAbRBLVUbYnwUn9VGBOyBaBVXAxBNDpme8oMX5iysXl51fZBetuAqdX/bEHOPXMXWtQU1+xL06s9RH5hh+gXOHa33l3pCvaeYCOpFl</CipherValue>
+              <CipherValue>gHNNoE0njqy/mtOPLdP7h1toTHV4W6EK66srDVLU4Dv+QQG4sCWK67lHLpMDCJsNxKFhdeU9pKH3HvQB93JGGfbkbT1pZZGDOCcziXGmpcc2O3hAk+5gpOL1/wpjwwWUtu24ERjjyEcPnEC3lJwBeBOB/FsMuh7o8fCFDI3qo26ZXEIy8FL2pktWHtEYOrp5</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -69,12 +69,12 @@
           DTS:ConnectionString="uid=MGXCONS;Dsn=RRHH;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="yG1/eCdNJf8="
-            IV="gvTFpzS+BLDvOf5YJuqb2g==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="NeOHRvyJTzw="
+            IV="pFrj14C1YWlpsG4xM1FFgg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>gvTFpzS+BLDvOf5YJuqb2is9uL24/iLSBBeu7HRMjXZc4xFf07GFfnMzy8nPLGSG0gHW9jnR81e/fcPZdT5/mYVLvR8DBd/nR3SEfjWvGL+4s7jyX6N100lelqkfiQFgPGsjU5hwv1IzNzYfpueFxBHcZH5Gy2mKTvj7sfMjZmE=</CipherValue>
+              <CipherValue>pFrj14C1YWlpsG4xM1FFgnwXD/kdChT0GXAf31U5Baol8tEoZCWSpkc4TNw2/UAmwK1cMVzjvasIkGhawS40jDGm0oe6yWe33STEAWeI0AOpMLo1l6dV4DDCIS0YpbgIur6UGXDKZda7bXZogPh/3yo/3r5Fp5l5S5TFy/fy0EM=</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -2970,14 +2970,14 @@ ORDER BY NRO_FUN_MGX</property>
         <NodeLayout
           Size="230,42"
           Id="Package\Carga DT_Designacion_Docente"
-          TopLeft="288.5,11.5" />
+          TopLeft="301.5,98.5" />
         <NodeLayout
           Size="209,42"
           Id="Package\Designaciones Docentes ED"
-          TopLeft="5.5,5.5" />
+          TopLeft="18.5,92.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="214.5,29.5">
+          TopLeft="227.5,116.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2997,6 +2997,13 @@ ORDER BY NRO_FUN_MGX</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="No se utiliza màs la tabla DT_Designacion_Docente desde que se generó la FT_DESIGNACION_DS"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="541,60"
+          Id="383d85d4-deb1-41ec-abc5-db8b0a224015"
+          TopLeft="22,29" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -3413,6 +3420,14 @@ ORDER BY NRO_FUN_MGX</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Carga DT_Designacion_Docente\Extrae Designaciones docentes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Carga DT_Designacion_Docente\DT_Designacion_Docente">
     <Properties>
       <Property>
@@ -3422,14 +3437,6 @@ ORDER BY NRO_FUN_MGX</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga DT_Designacion_Docente\Extrae Designaciones docentes">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
