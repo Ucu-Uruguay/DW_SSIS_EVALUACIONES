@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="66"
-  DTS:VersionGUID="{01C1E0F9-E20E-4125-B007-EBD031802E5F}">
+  DTS:VersionBuild="67"
+  DTS:VersionGUID="{A993A2AC-27C5-4E35-9E1E-C85024262F5D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -38,12 +38,12 @@
           DTS:ConnectionString="Data Source=HRPROD;User ID=UCU_GP;Provider=OraOLEDB.Oracle.1;Persist Security Info=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="1+NVCwAvuOA="
-            IV="3cIDAupdXDY8GecA0Lk8vQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="DSLXaL41gSQ="
+            IV="71KkJTcfUP0dguFD5lorbg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>3cIDAupdXDY8GecA0Lk8vY+LjOPRIACarwAYmqEwWO1KhraeVq6bCvhq2gojSjltuIFhH9Hmt8o6TTMy4J0a8b1tiimpBE9OVvtoHZfLKI5dt7msnkDI4LF5fRl9ibyoQjY3Aq6o9axGmb5v94/rjiHUzumNagmc3cNCVFonXSSBq0VgxGcBRUWAcKppWRwk</CipherValue>
+              <CipherValue>71KkJTcfUP0dguFD5lorbggA4zq+GwGR8rdiCMoh3hS9q1qmpuHVpSe67nfzj3lSBvvR7XBy4rn95LLBgxMdTYW4SOJ43ikMdgZf7oz2RZqEHHgpzWLczwA2X5Qq01KIOEjmHsBL3Er1xOoSDZOjUjH9VnWdJeTU/ZWT1Xc6UcpGMeJ0IOROQre0AcbjJfNz</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -112,7 +112,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Alumnos clase"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="8">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -129,7 +129,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Campus"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="11">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -146,7 +146,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Carreras"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="12">
+      DTS:ThreadHint="8">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -163,7 +163,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Ciclo"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="9">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -180,7 +180,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Ciclos Grados"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -199,7 +199,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Clases"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="10">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -216,7 +216,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Cursos"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -233,7 +233,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Definicion Evaluaciones"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -250,7 +250,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Docentes"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -267,7 +267,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Docentes clase"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1603,6 +1603,13 @@ ORDER BY ciclo_id</property>
                       cachedName="GRADO_ID"
                       externalMetadataColumnId="Package\DT_Clase_Inst\Carga DT_Clase_Inst.Inputs[Entrada de destino de OLE DB].ExternalColumns[GRADO_ID]"
                       lineageId="Package\DT_Clase_Inst\Extrae datos.Outputs[Salida de origen de OLE DB].Columns[GRADO_ID]" />
+                    <inputColumn
+                      refId="Package\DT_Clase_Inst\Carga DT_Clase_Inst.Inputs[Entrada de destino de OLE DB].Columns[ACAD_GROUP_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="ACAD_GROUP_ID"
+                      externalMetadataColumnId="Package\DT_Clase_Inst\Carga DT_Clase_Inst.Inputs[Entrada de destino de OLE DB].ExternalColumns[GRUPO_ACAD_ID]"
+                      lineageId="Package\DT_Clase_Inst\Extrae datos.Outputs[Salida de origen de OLE DB].Columns[ACAD_GROUP_ID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1659,6 +1666,11 @@ ORDER BY ciclo_id</property>
                       dataType="wstr"
                       length="8"
                       name="GRADO_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DT_Clase_Inst\Carga DT_Clase_Inst.Inputs[Entrada de destino de OLE DB].ExternalColumns[GRUPO_ACAD_ID]"
+                      dataType="wstr"
+                      length="10"
+                      name="GRUPO_ACAD_ID" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -7334,7 +7346,7 @@ CASE WHEN EVALUACIONACTIVA='1' THEN 'Activa'
       DTS:LocaleID="-1"
       DTS:ObjectName="Evaluaciones"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="9">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -7796,7 +7808,7 @@ CASE WHEN EVALUACIONACTIVA='1' THEN 'Activa'
       DTS:LocaleID="-1"
       DTS:ObjectName="Grupos Academicos"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="10">
+      DTS:ThreadHint="11">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -7813,7 +7825,7 @@ CASE WHEN EVALUACIONACTIVA='1' THEN 'Activa'
       DTS:LocaleID="-1"
       DTS:ObjectName="Roles docentes"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="12">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -8520,13 +8532,13 @@ CASE WHEN EVALUACIONACTIVA='1' THEN 'Activa'
           Id="Package\DT_Clase_Inst\Carga DT_Clase_Inst"
           TopLeft="27.5,202.5" />
         <NodeLayout
-          Size="217,42"
-          Id="Package\DT_Clase_Inst\Agrega CLAVE_CICLO_CLASE"
-          TopLeft="5.5,107.5" />
-        <NodeLayout
           Size="138,42"
           Id="Package\DT_Clase_Inst\Extrae datos"
           TopLeft="37.5,5.5" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\DT_Clase_Inst\Agrega CLAVE_CICLO_CLASE"
+          TopLeft="5.5,107.5" />
         <EdgeLayout
           Id="Package\DT_Clase_Inst.Paths[Salida de origen de OLE DB]"
           TopLeft="110.25,47.5">
