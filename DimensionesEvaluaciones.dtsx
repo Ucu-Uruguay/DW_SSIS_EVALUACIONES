@@ -13,8 +13,8 @@
   DTS:MaxErrorCount="0"
   DTS:ObjectName="CursosDesdeWizzard"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="112"
-  DTS:VersionGUID="{5830DDA6-5DAD-477C-84FD-0965FDABB2D1}">
+  DTS:VersionBuild="113"
+  DTS:VersionGUID="{2CB138AF-6E98-4270-87AE-3778D690BE45}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,12 +28,12 @@
           DTS:ConnectionString="Server=172.16.5.45;User ID=MGXCONS;Database=RRHH;DBName=RRHH;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="kLIR6I4JbkY="
-            IV="3r+tnk76kEL4c4pjMrDoxA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="yI7iMhVQ5j4="
+            IV="N7aRGxViRDq2KesqS3xQnw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>3r+tnk76kEL4c4pjMrDoxFpbZUDU4wqF2kdWJJOFzviWbF4ZU1Iw982k0uXdf+rcENfS6DXk8SdwcfJqwp46DBubo5TAlFCFrIX4Vfvz35JzuVuZ92UwcSRnzWCN2KZ1S64xGWPnRQpPSybWvhOXOwMgV8ZmqdoCy4KFkUFM+fYzm1nPYpL79Q1P0DrT9t3w</CipherValue>
+              <CipherValue>N7aRGxViRDq2KesqS3xQn32c+t2NyRYr0NlBj43k0C4s02XlcWM71KmWHhMMTZLxE4DHwqXu1Gk/ATb2hHoPbqO8orz/PxBJSPPd+4AVvxyLnmy3q3BMyzHKUoHyUJMkN11ADtVr7d7/13+QskJPi+s1EbLG6TeWwXxxOYmyXmsuK81JF+dy1rdIbOrNsChQ</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -60,12 +60,12 @@
           DTS:ConnectionString="uid=UCU_GP;Dsn=Oracle_HRPROD;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="1D0b35Xqig0="
-            IV="NmCMzV06AOJ2PiWvkLBo4w==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="YNF7n2G22dU="
+            IV="KNzcDkLfkMFiAsF05KhnWw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>NmCMzV06AOJ2PiWvkLBo44fSNxqEtku+TNlcucBjWINsdlOzxny0u7jYigT6hAUkV11Mw4Jxzyh8BLM3CdGdNSNrn/4hZOaHE0H7w6QQ0UIPEUCdgAgEBgaFLAcB7oTXv40ss8vyOkecAUmDh0fycxRPq1MFnHvVIP3efwqypDo=</CipherValue>
+              <CipherValue>KNzcDkLfkMFiAsF05KhnW6YQJOnXPxvmHdsUWKvMHfffDiBho7da5/y9OpDTekZfAjOWyS/SW89wMUj8mjXxyqJYv7+tCRvwoW1mW3tSCzqz7H0/bmNg5kQLtP2afsicrg82OLOJHkHRjwqfpR0MYgcGrRqxlsxhEickyiFuwXM=</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -81,12 +81,12 @@
           DTS:ConnectionString="Data Source=PROD-UCUDBS10\POWERBI;User ID=rcalvo;Initial Catalog=DW_UCU;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="/SrenBV5XLI="
-            IV="SzrMfzSXmrcOIv+KVVnpcw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="48ffCeFkOdY="
+            IV="jCZkLvguLlK2ctCWwLgTbQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>SzrMfzSXmrcOIv+KVVnpc+KpfeoTrn5/yh3ttO9jyHxHBbPqd1J9F++7KYfAAftMony2b7nHr5uutzl/jY6KWRucLCimHQGa4Rq1Kyu51ZygiLDOeIuiPG4OEznMsLf0GrmIQmlW4XAfgqq1MozkBOd3HlrZKefZpRd+zkaWO4m4GJhqscn2RIqRmvxLovmQ</CipherValue>
+              <CipherValue>jCZkLvguLlK2ctCWwLgTbUgUgJryxVToAM8ENQ4/vutZNfSoyPixnQc3OvicrayvgONvtSKzupu/TRCdOn0EGECP1Pz/tgcf9LTea1K3OmLuvRfZmYZCF0IIikhqNSsKLAXPnIF15YmN40P+L5k76l/nmV/DbhaADtN9lbah9G8qKXGGcu8qCnf8n1SMBE4o</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -145,7 +145,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Alumnos Clase (Consulta producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -164,7 +164,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Campus (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="10">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -1912,6 +1912,13 @@ AND l.EFFDT = (SELECT MAX(l_ED.EFFDT)
                       cachedName="GRADO_ID"
                       externalMetadataColumnId="Package\Carga DT_clases_inst\DT_Clase_Inst.Inputs[Entrada de destino de OLE DB].ExternalColumns[GRADO_ID]"
                       lineageId="Package\Carga DT_clases_inst\Clases.Outputs[Salida de origen de ADO NET].Columns[GRADO_ID]" />
+                    <inputColumn
+                      refId="Package\Carga DT_clases_inst\DT_Clase_Inst.Inputs[Entrada de destino de OLE DB].Columns[ACAD_GROUP_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ACAD_GROUP_ID"
+                      externalMetadataColumnId="Package\Carga DT_clases_inst\DT_Clase_Inst.Inputs[Entrada de destino de OLE DB].ExternalColumns[GRUPO_ACAD_ID]"
+                      lineageId="Package\Carga DT_clases_inst\Clases.Outputs[Salida de origen de ADO NET].Columns[ACAD_GROUP_ID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1968,6 +1975,11 @@ AND l.EFFDT = (SELECT MAX(l_ED.EFFDT)
                       dataType="wstr"
                       length="8"
                       name="GRADO_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Carga DT_clases_inst\DT_Clase_Inst.Inputs[Entrada de destino de OLE DB].ExternalColumns[GRUPO_ACAD_ID]"
+                      dataType="wstr"
+                      length="10"
+                      name="GRUPO_ACAD_ID" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -9718,7 +9730,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Carreras (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="11">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9737,7 +9749,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Ciclos (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9756,7 +9768,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Ciclos Grado (Consulta Producciòn)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="13">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9775,7 +9787,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Clases (Consulta producciòn)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9794,7 +9806,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Cursos (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9813,7 +9825,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Definicion Evaluaciones (Produccion)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="12">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9832,7 +9844,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Designaciones docentes"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="8">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9851,7 +9863,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Docente (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="9">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9870,7 +9882,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Docentes Clase (Consulta producciòn)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="8">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9889,7 +9901,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Evaluaciones (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="9">
+      DTS:ThreadHint="10">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9909,7 +9921,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Grupo Academico (DW_FACULTAD)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="12">
+      DTS:ThreadHint="11">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9928,7 +9940,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Rol docente (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="13">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -10874,28 +10886,6 @@ ORDER BY ciclo_id</property>
           Id="Package\Carga DT_clases_inst\Agrega CLAVE_CICLO_CLASE"
           TopLeft="42.5,112.5" />
         <EdgeLayout
-          Id="Package\Carga DT_clases_inst.Paths[Salida de origen de ADO NET]"
-          TopLeft="148.5,67.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45"
-              Start="0,0"
-              End="0,37.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Carga DT_clases_inst.Paths[Salida de columna derivada]"
           TopLeft="153,154.5">
           <EdgeLayout.Curve>
@@ -10909,6 +10899,28 @@ ORDER BY ciclo_id</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga DT_clases_inst.Paths[Salida de origen de ADO NET]"
+          TopLeft="148.5,67.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
