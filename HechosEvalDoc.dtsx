@@ -12,8 +12,8 @@
   DTS:ObjectName="HechosEvalDoc"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="32"
-  DTS:VersionGUID="{9E52BB5F-B8F7-4184-AE1A-FB02D0B73CF2}">
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{ABE85F9C-6DF3-4C99-B90A-F6025766B998}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -38,12 +38,12 @@
           DTS:ConnectionString="Data Source=HRPROD;User ID=UCU_GP;Provider=OraOLEDB.Oracle.1;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="DjL+XwfWKKk="
-            IV="qfqXY9glo8kQmqlttOOgMw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="G7XMKnvf+EM="
+            IV="YBuN6BVesI31DypIs+y02g==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>qfqXY9glo8kQmqlttOOgM/vBl24HshmbkracLZ8EV0lVkOSPqaF+0vL4S6/O7bgFbuLFbCaj6sjCUvcRTE89RsAzxr9SNYg+z38t2buzACxELV3bixm8zimqcWjrNsitb1VGPuCktAtPAPX+En78gtT6o8mEPCuF+pfnQIzbtHbzgWj3JheYXdRqgAOuBW1e</CipherValue>
+              <CipherValue>YBuN6BVesI31DypIs+y02gAU5Wy+0OuULiOhbe2EqZOOwsKVu6T0Y8fR29mWlneyuCUBm3SxH435L1SqqBFZjAgRKgFNOIOKXsxeOq172Z7xOhqsrBbchxnLOeRqcMpppY0X6KKXDYXXwvjHWLLvi64DSBpE36MJYDzZPotyVPecn82AMFARb/6myIV3H/AO</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -77,15 +77,12 @@
       DTS:CreationName=""
       DTS:DTSID="{D0A6910B-821A-40E1-B958-D035AF013C01}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT a.CAID, a.EVALUACIONID, a.CADOCENTECODIGO, a.CAFECHA, a.CACLASECICLOLECTIVO, a.CACLASECODIGO, a.ROLESDOCENTECODIGO, a.CAALUMNOCODIGO,b.PREGUNTAID, b.RESPUESTACODIGO, b.RESPUESTATEXTO&#xA;FROM UCU_EVAL.EvaluacionAlumno@ucuapps EVA JOIN UCU_EVAL.CalificacionAlumno@ucuapps a ON EVA.EvaluacionID=a.EvaluacionID AND EVA.EACLASECODIGO=a.CACLASECODIGO and EVA.EACLASECICLOLECTIVO=a.CACLASECICLOLECTIVO and a.CAALUMNOCODIGO =EVA.EAALUMNOCODIGO and a.CADOCENTECODIGO=EVA.EADOCENTECODIGO&#xA;LEFT JOIN UCU_EVAL.CalificacionAlumnoRespuesta@ucuapps b ON a.CaId=b.CaId &#xA;WHERE  EVA.EAFINALIZADA = 1 AND a.CAFECHA &gt; to_date('&quot;+(DT_WSTR,30)@[User::UltimaFechaTransferida]+&quot;' , 'DD-MM-YYYY')&quot;"
+      DTS:Expression="&quot;SELECT a.CAID, a.EVALUACIONID, a.CADOCENTECODIGO, a.CAFECHA, a.CACLASECICLOLECTIVO, a.CACLASECODIGO, a.ROLESDOCENTECODIGO, a.CAALUMNOCODIGO,b.PREGUNTAID, b.RESPUESTACODIGO, b.RESPUESTATEXTO FROM UCU_EVAL.EvaluacionAlumno@ucuapps EVA, SYSADM.PS_STDNT_ENRL I, UCU_EVAL.CalificacionAlumno@ucuapps a LEFT JOIN UCU_EVAL.CalificacionAlumnoRespuesta@ucuapps b ON a.CaId=b.CaId WHERE EVA.EAFINALIZADA = 1 AND a.CAFECHA &gt; to_date('&quot;+(DT_WSTR,30)@[User::UltimaFechaTransferida]+&quot;' , 'DD-MM-YYYY') AND EVA.EvaluacionID = a.EvaluacionID AND EVA.EACLASECODIGO = a.CACLASECODIGO AND EVA.EACLASECICLOLECTIVO = a.CACLASECICLOLECTIVO AND a.CAALUMNOCODIGO = EVA.EAALUMNOCODIGO AND a.CADOCENTECODIGO = EVA.EADOCENTECODIGO AND A.CACLASECICLOLECTIVO = I.STRM AND A.CACLASECODIGO = I.CLASS_NBR AND A.caalumnocodigo = I.EMPLID AND I.STDNT_ENRL_STATUS = 'E'&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="QueryEvalDoc">
       <DTS:VariableValue
-        DTS:DataType="8">SELECT a.CAID, a.EVALUACIONID, a.CADOCENTECODIGO, a.CAFECHA, a.CACLASECICLOLECTIVO, a.CACLASECODIGO, a.ROLESDOCENTECODIGO, a.CAALUMNOCODIGO,b.PREGUNTAID, b.RESPUESTACODIGO, b.RESPUESTATEXTO
-FROM UCU_EVAL.EvaluacionAlumno@ucuapps EVA JOIN UCU_EVAL.CalificacionAlumno@ucuapps a ON EVA.EvaluacionID=a.EvaluacionID AND EVA.EACLASECODIGO=a.CACLASECODIGO and EVA.EACLASECICLOLECTIVO=a.CACLASECICLOLECTIVO and a.CAALUMNOCODIGO =EVA.EAALUMNOCODIGO and a.CADOCENTECODIGO=EVA.EADOCENTECODIGO
-LEFT JOIN UCU_EVAL.CalificacionAlumnoRespuesta@ucuapps b ON a.CaId=b.CaId 
-WHERE  EVA.EAFINALIZADA = 1 AND a.CAFECHA &gt; to_date('01/01/1901' , 'DD-MM-YYYY')</DTS:VariableValue>
+        DTS:DataType="8">SELECT a.CAID, a.EVALUACIONID, a.CADOCENTECODIGO, a.CAFECHA, a.CACLASECICLOLECTIVO, a.CACLASECODIGO, a.ROLESDOCENTECODIGO, a.CAALUMNOCODIGO,b.PREGUNTAID, b.RESPUESTACODIGO, b.RESPUESTATEXTO FROM UCU_EVAL.EvaluacionAlumno@ucuapps EVA, SYSADM.PS_STDNT_ENRL I, UCU_EVAL.CalificacionAlumno@ucuapps a LEFT JOIN UCU_EVAL.CalificacionAlumnoRespuesta@ucuapps b ON a.CaId=b.CaId WHERE EVA.EAFINALIZADA = 1 AND a.CAFECHA &gt; to_date('01/01/1901' , 'DD-MM-YYYY') AND EVA.EvaluacionID = a.EvaluacionID AND EVA.EACLASECODIGO = a.CACLASECODIGO AND EVA.EACLASECICLOLECTIVO = a.CACLASECICLOLECTIVO AND a.CAALUMNOCODIGO = EVA.EAALUMNOCODIGO AND a.CADOCENTECODIGO = EVA.EADOCENTECODIGO AND A.CACLASECICLOLECTIVO = I.STRM AND A.CACLASECODIGO = I.CLASS_NBR AND A.caalumnocodigo = I.EMPLID AND I.STDNT_ENRL_STATUS = 'E'</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -4720,6 +4717,10 @@ GROUP BY eva.EVALUACIONID</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="157,42"
+          Id="Package\ETL FT_Evaluaciones\FT_Evaluaciones"
+          TopLeft="611.5,44.5" />
+        <NodeLayout
           Size="196,42"
           Id="Package\ETL FT_Evaluaciones\Respuestas Evaluaciones"
           TopLeft="29.5,33.5" />
@@ -4749,10 +4750,6 @@ GROUP BY eva.EVALUACIONID</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="157,42"
-          Id="Package\ETL FT_Evaluaciones\FT_Evaluaciones"
-          TopLeft="611.5,44.5" />
         <EdgeLayout
           Id="Package\ETL FT_Evaluaciones.Paths[Salida de columna derivada]"
           TopLeft="495,62.25">
@@ -4778,6 +4775,19 @@ GROUP BY eva.EVALUACIONID</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL FT_Evaluaciones\FT_Evaluaciones">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\ETL FT_Evaluaciones\Respuestas Evaluaciones">
     <Properties>
@@ -5299,19 +5309,6 @@ GROUP BY eva.EVALUACIONID</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\ETL FT_Evaluaciones\FT_Evaluaciones">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
