@@ -12,8 +12,8 @@
   DTS:ObjectName="HechosEvalDoc"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="34"
-  DTS:VersionGUID="{ABE85F9C-6DF3-4C99-B90A-F6025766B998}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{CCD40DB4-993B-4845-994B-9C052422ABE9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -38,12 +38,12 @@
           DTS:ConnectionString="Data Source=HRPROD;User ID=UCU_GP;Provider=OraOLEDB.Oracle.1;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="G7XMKnvf+EM="
-            IV="YBuN6BVesI31DypIs+y02g==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="mJjOJQhbtBg="
+            IV="nzrpk+8FBxRZDOKZYr4p2w==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>YBuN6BVesI31DypIs+y02gAU5Wy+0OuULiOhbe2EqZOOwsKVu6T0Y8fR29mWlneyuCUBm3SxH435L1SqqBFZjAgRKgFNOIOKXsxeOq172Z7xOhqsrBbchxnLOeRqcMpppY0X6KKXDYXXwvjHWLLvi64DSBpE36MJYDzZPotyVPecn82AMFARb/6myIV3H/AO</CipherValue>
+              <CipherValue>nzrpk+8FBxRZDOKZYr4p222nsgr98FpmBh6AcrdVsAMJKJjcEvFvhAkm1gbocARVvp/ijKuU1XtZhJS3yhwtdDbvX8QL7/BxA0/sgs0YprgMNxImI64ljmOycg+EIQ+izuCnCDdwKupkWShsvelOmzIpTr32RM+Lt3HjbRhayWw4rvxPn6TfkJXhCxxnYd4R</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -1150,19 +1150,19 @@ WHERE a.CAFECHA &gt; ? AND EVA.EAFINALIZADA = 1</property>
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [DT_Clase_Inst_Docente].[CLASE_ID]
-	,cast([DT_Clase_Inst_Docente].[CICLO_ID] as smallint) as CICLO_ID_entero
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [VIEW_ED_Clases_Evaluables_Docentes].[CLASE_ID]
+	,cast([VIEW_ED_Clases_Evaluables_Docentes].[CICLO_ID] as smallint) as CICLO_ID_entero
 	,count(distinct [EMPL_ID]) as cant_doc_clase
 	,count(distinct [ALUMNO_ID]) as cant_alumn_clase
 	,max(case when Evaluaciones.cant_doc_eval is null then 0 else Evaluaciones.cant_doc_eval end) as cant_doc_eval
 	,max(case when Evaluaciones.cant_alumn_eval is null then 0 else Evaluaciones.cant_alumn_eval end) as cant_alumn_eval
-  FROM [DW_UCU].[dbo].[DT_Clase_Inst_Docente] left outer join [DW_UCU].[dbo].[DT_Clase_Inst_Alumno] on [DT_Clase_Inst_Docente].CICLO_ID=[DT_Clase_Inst_Alumno].CICLO_ID and [DT_Clase_Inst_Docente].CLASE_ID=[DT_Clase_Inst_Alumno].CLASE_ID
+  FROM [DW_UCU].[dbo].[VIEW_ED_Clases_Evaluables_Docentes] left outer join [DW_UCU].[dbo].[DT_Clase_Inst_Alumno] on [VIEW_ED_Clases_Evaluables_Docentes].CICLO_ID=[DT_Clase_Inst_Alumno].CICLO_ID and [VIEW_ED_Clases_Evaluables_Docentes].CLASE_ID=[DT_Clase_Inst_Alumno].CLASE_ID
   left outer join
 (SELECT [CLASE_ID], [CICLO_ID], count(distinct [EMPLID_DOCENTE]) as cant_doc_eval, count(distinct [EMPLID_ALUMNO]) as cant_alumn_eval
   FROM [DW_UCU].[dbo].[FT_Evaluaciones]
-  GROUP BY [CLASE_ID], [CICLO_ID]) Evaluaciones on [DT_Clase_Inst_Docente].[CLASE_ID] = Evaluaciones.CLASE_ID and cast([DT_Clase_Inst_Docente].[CICLO_ID] as smallint)=Evaluaciones.CICLO_ID
-  GROUP BY [DT_Clase_Inst_Docente].[CLASE_ID], [DT_Clase_Inst_Docente].[CICLO_ID]
-  ORDER BY [DT_Clase_Inst_Docente].[CLASE_ID], [DT_Clase_Inst_Docente].[CICLO_ID]</property>
+  GROUP BY [CLASE_ID], [CICLO_ID]) Evaluaciones on [VIEW_ED_Clases_Evaluables_Docentes].[CLASE_ID] = Evaluaciones.CLASE_ID and cast([VIEW_ED_Clases_Evaluables_Docentes].[CICLO_ID] as smallint)=Evaluaciones.CICLO_ID
+  GROUP BY [VIEW_ED_Clases_Evaluables_Docentes].[CLASE_ID], [VIEW_ED_Clases_Evaluables_Docentes].[CICLO_ID]
+  ORDER BY [VIEW_ED_Clases_Evaluables_Docentes].[CLASE_ID], [VIEW_ED_Clases_Evaluables_Docentes].[CICLO_ID]</property>
                 <property
                   dataType="System.String"
                   description="Variable que contiene el comando SQL para ejecutar."
@@ -4180,8 +4180,8 @@ group by EVALUACIONID</property>
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT eva.EVALUACIONID, COUNT(*) total_clases
-FROM [DW_UCU].[dbo].[DT_Clase_Inst] cla join [DW_UCU].[dbo].[DT_Curso] cur on cla.CURSO_ID=cur.CURSO_ID and cur.TIPO_CURSO='C' and (cla.FECHA_INICIO&gt;=cur.FECHA_EFECTIVA and cur.FECHA_EFECTIVA_FIN is null or cla.FECHA_INICIO between cur.FECHA_EFECTIVA and cur.FECHA_EFECTIVA_FIN)
-	left outer join (SELECT distinct [DT_Carrera].GRADO_ID, [CLASE_ID],[CICLO_ID] FROM [DW_UCU].[dbo].[DT_Clase_Inst_Alumno] left outer join [DT_Carrera] on [DT_Clase_Inst_Alumno].CARRERA_ID = [DT_Carrera].CARRERA_ID) grc on cla.CLASE_ID=grc.CLASE_ID and cla.CICLO_ID=grc.CICLO_ID
+FROM [DW_UCU].[dbo].[VIEW_ED_Clases_Evaluables] cla join [DW_UCU].[dbo].[DT_Curso] cur on cla.CURSO_ID=cur.CURSO_ID and cur.TIPO_CURSO='C' and (cla.FECHA_INICIO&gt;=cur.FECHA_EFECTIVA and cur.FECHA_EFECTIVA_FIN is null or cla.FECHA_INICIO between cur.FECHA_EFECTIVA and cur.FECHA_EFECTIVA_FIN)
+	left outer join (SELECT distinct [DT_Carrera].GRADO_ID, [CLASE_ID],[CICLO_ID] FROM [DW_UCU].[dbo].[VIEW_ED_Clases_Evaluables_Alumnos] left outer join [DT_Carrera] on [VIEW_ED_Clases_Evaluables_Alumnos].CARRERA_ID = [DT_Carrera].CARRERA_ID) grc on cla.CLASE_ID=grc.CLASE_ID and cla.CICLO_ID=grc.CICLO_ID
 	 join ( select distinct EVALUACIONID,[EVALUACIONNOMBRE],[EVALUACIONFECHAINICIO],[EVALUACIONFECHAFIN],[GRADO_ID] from [DW_UCU].[dbo].[DT_Evaluacion]) eva on cla.FECHA_FIN between eva.EVALUACIONFECHAINICIO and eva.EVALUACIONFECHAFIN 
 			and eva.GRADO_ID = case when grc.GRADO_ID = 'GRAD' or grc.GRADO_ID = 'TECH' then 'GRAD' else 'PGRD' end
 GROUP BY eva.EVALUACIONID</property>
@@ -4814,28 +4814,6 @@ GROUP BY eva.EVALUACIONID</property>
           Id="Package\Sincro totales docentes alumnos\Origen de OLE DB"
           TopLeft="5.5,5.5" />
         <EdgeLayout
-          Id="Package\Sincro totales docentes alumnos.Paths[Salida de columna derivada]"
-          TopLeft="426.5,26.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="83,0"
-              Start="0,0"
-              End="75.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="75.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Sincro totales docentes alumnos.Paths[Salida de origen de OLE DB]"
           TopLeft="169.5,26.5">
           <EdgeLayout.Curve>
@@ -4849,6 +4827,28 @@ GROUP BY eva.EVALUACIONID</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="85.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sincro totales docentes alumnos.Paths[Salida de columna derivada]"
+          TopLeft="426.5,26.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="83,0"
+              Start="0,0"
+              End="75.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="75.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

@@ -12,8 +12,8 @@
   DTS:ObjectName="HechosEvaluaciones"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="68"
-  DTS:VersionGUID="{5FCD0900-F8EE-49D2-804B-432FED5F9FC9}">
+  DTS:VersionBuild="69"
+  DTS:VersionGUID="{0C885CFB-BC0F-4A3E-97A7-4369569ADB70}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -38,12 +38,12 @@
           DTS:ConnectionString="uid=UCU_GP;Dsn=Oracle_HRPROD;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="m+8V7CrlSPE="
-            IV="v2Fovq+4yPMIWiu7LR+v3A==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="txgO19AllWo="
+            IV="G+lLuprvIdFDI8LDLX9BkA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>v2Fovq+4yPMIWiu7LR+v3Bp4AQjETB7dt8YUqdfK1Jxw1WA9/wWDG1X1yYSgHp6EtyncC8QFzBn8VfG9AJ18ValHMHo1sZo4+cNKXg8eTSErcw2allOxc1bT01Ye+jFJxPLVZxXyeGRy3WsmbQkoIAYamoD/t8wKd2SbTPlU2rc=</CipherValue>
+              <CipherValue>G+lLuprvIdFDI8LDLX9BkHohzfjSuVc+l0aImEoQHR5vuO91hLSzb1XhdopPB/6gs0v8OwF3sVoFIoUQ/La4XB9uiZ5aLQl5Ml3KpzzMdw0rEuVl5TVY+Iu0+u88y4R6A6XswmLIV/MmhPLbc8Mm4pC5oI3cAZdrU1MEr2AoDvE=</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -3063,10 +3063,9 @@ GROUP BY evaluacionID, emplID_docente, ciclo_ID, clase_ID, emplID_alumno	  ,[EVA
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
       <DTS:PropertyExpression
-        DTS:Name="[Respuestas Evaluaciones].[SqlCommand]">"SELECT a.CAID, a.EVALUACIONID, a.CADOCENTECODIGO, a.CAFECHA, a.CACLASECICLOLECTIVO, a.CACLASECODIGO, a.ROLESDOCENTECODIGO, a.CAALUMNOCODIGO,b.PREGUNTAID, b.RESPUESTACODIGO, b.RESPUESTATEXTO
-FROM UCU_EVAL.EvaluacionAlumno@ucuapps EVA JOIN UCU_EVAL.CalificacionAlumno@ucuapps a ON EVA.EvaluacionID=a.EvaluacionID AND EVA.EACLASECODIGO=a.CACLASECODIGO and EVA.EACLASECICLOLECTIVO=a.CACLASECICLOLECTIVO and a.CAALUMNOCODIGO =EVA.EAALUMNOCODIGO and a.CADOCENTECODIGO=EVA.EADOCENTECODIGO
-LEFT JOIN UCU_EVAL.CalificacionAlumnoRespuesta@ucuapps b ON a.CaId=b.CaId 
-WHERE a.CAFECHA &gt; '"+ (DT_WSTR,30)@[User::UltimaFechaTransf]+"' AND EVA.EAFINALIZADA = 1"</DTS:PropertyExpression>
+        DTS:Name="[Respuestas Evaluaciones].[SqlCommand]">"SELECT a.CAID, a.EVALUACIONID, a.CADOCENTECODIGO, a.CAFECHA, a.CACLASECICLOLECTIVO, a.CACLASECODIGO, a.ROLESDOCENTECODIGO, a.CAALUMNOCODIGO,b.PREGUNTAID, b.RESPUESTACODIGO, b.RESPUESTATEXTO 
+FROM UCU_EVAL.EvaluacionAlumno@ucuapps EVA, SYSADM.PS_STDNT_ENRL I, UCU_EVAL.CalificacionAlumno@ucuapps a LEFT JOIN UCU_EVAL.CalificacionAlumnoRespuesta@ucuapps b ON a.CaId=b.CaId 
+WHERE EVA.EAFINALIZADA = 1 AND a.CAFECHA &gt; '"+ (DT_WSTR,30)@[User::UltimaFechaTransf]+"' AND EVA.EvaluacionID = a.EvaluacionID AND EVA.EACLASECODIGO = a.CACLASECODIGO AND EVA.EACLASECICLOLECTIVO = a.CACLASECICLOLECTIVO AND a.CAALUMNOCODIGO = EVA.EAALUMNOCODIGO AND a.CADOCENTECODIGO = EVA.EADOCENTECODIGO AND A.CACLASECICLOLECTIVO = I.STRM AND A.CACLASECODIGO = I.CLASS_NBR AND A.caalumnocodigo = I.EMPLID AND I.STDNT_ENRL_STATUS = 'E'"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <pipeline
           version="1">
@@ -3412,10 +3411,9 @@ WHERE a.CAFECHA &gt; '"+ (DT_WSTR,30)@[User::UltimaFechaTransf]+"' AND EVA.EAFIN
                   description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT a.CAID, a.EVALUACIONID, a.CADOCENTECODIGO, a.CAFECHA, a.CACLASECICLOLECTIVO, a.CACLASECODIGO, a.ROLESDOCENTECODIGO, a.CAALUMNOCODIGO,b.PREGUNTAID, b.RESPUESTACODIGO, b.RESPUESTATEXTO
-FROM UCU_EVAL.EvaluacionAlumno@ucuapps EVA JOIN UCU_EVAL.CalificacionAlumno@ucuapps a ON EVA.EvaluacionID=a.EvaluacionID AND EVA.EACLASECODIGO=a.CACLASECODIGO and EVA.EACLASECICLOLECTIVO=a.CACLASECICLOLECTIVO and a.CAALUMNOCODIGO =EVA.EAALUMNOCODIGO and a.CADOCENTECODIGO=EVA.EADOCENTECODIGO
-LEFT JOIN UCU_EVAL.CalificacionAlumnoRespuesta@ucuapps b ON a.CaId=b.CaId 
-WHERE a.CAFECHA &gt; '01/01/1901' AND EVA.EAFINALIZADA = 1</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT a.CAID, a.EVALUACIONID, a.CADOCENTECODIGO, a.CAFECHA, a.CACLASECICLOLECTIVO, a.CACLASECODIGO, a.ROLESDOCENTECODIGO, a.CAALUMNOCODIGO,b.PREGUNTAID, b.RESPUESTACODIGO, b.RESPUESTATEXTO 
+FROM UCU_EVAL.EvaluacionAlumno@ucuapps EVA, SYSADM.PS_STDNT_ENRL I, UCU_EVAL.CalificacionAlumno@ucuapps a LEFT JOIN UCU_EVAL.CalificacionAlumnoRespuesta@ucuapps b ON a.CaId=b.CaId 
+WHERE EVA.EAFINALIZADA = 1 AND a.CAFECHA &gt; '01/01/1901' AND EVA.EvaluacionID = a.EvaluacionID AND EVA.EACLASECODIGO = a.CACLASECODIGO AND EVA.EACLASECICLOLECTIVO = a.CACLASECICLOLECTIVO AND a.CAALUMNOCODIGO = EVA.EAALUMNOCODIGO AND a.CADOCENTECODIGO = EVA.EADOCENTECODIGO AND A.CACLASECICLOLECTIVO = I.STRM AND A.CACLASECODIGO = I.CLASS_NBR AND A.caalumnocodigo = I.EMPLID AND I.STDNT_ENRL_STATUS = 'E'</property>
                 <property
                   dataType="System.Int32"
                   description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
