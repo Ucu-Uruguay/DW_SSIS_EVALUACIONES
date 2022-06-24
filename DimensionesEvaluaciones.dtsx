@@ -13,8 +13,8 @@
   DTS:MaxErrorCount="0"
   DTS:ObjectName="CursosDesdeWizzard"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="115"
-  DTS:VersionGUID="{651A3C1E-27B6-446D-9C6F-0581813B69F3}">
+  DTS:VersionBuild="116"
+  DTS:VersionGUID="{AF18F965-AF94-458F-A930-38E99D1F5655}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,12 +28,12 @@
           DTS:ConnectionString="Server=172.16.5.45;User ID=MGXCONS;Database=RRHH;DBName=RRHH;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="HzYnmhWIrmw="
-            IV="T2wdU47HZq5ZQFF5pA6oAA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="GOmM+mV28So="
+            IV="Lz71lZQTvM8G5sO8vmka2A==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>T2wdU47HZq5ZQFF5pA6oAKcKJH4gaywH4IDjoI8T3I510L+f2OxsrikymsYmtj0vrVRwkDIB6YZs9HQcvKihDkPbY7hfxGuZGH/L4TmjCazQx5ffsBM2szaifNbECmAesZqaRcIgRi61KCtlH/KL+wkSvvrwJpHidxVrX78cuGWr2KyQHpfTHheNaXM7iijf</CipherValue>
+              <CipherValue>Lz71lZQTvM8G5sO8vmka2O5J+IwhlIFzd2Bbb032u9iiuXKH0h+jssmqEpPScmTEsoRiB8g7udG5zRO2fjokQfWM0cjLQWDNSSrmPWReZfwRrxwKZER5FWnI4rfKdumdx3dn4NsTjRAecaO5hnqU9U9EydmLVbJAOo/tbrBWPkrXh9eaGlyKpeogebPqWgRP</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -60,12 +60,12 @@
           DTS:ConnectionString="uid=UCU_GP;Dsn=Oracle_HRPROD;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="Kmt+sUuS2fk="
-            IV="hAhbeLg9iGK6Lh9ZSrHc/A==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="BGwUl8Yvfqs="
+            IV="HVnHJhLDlEJCbh/Kgf05Gw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>hAhbeLg9iGK6Lh9ZSrHc/Gv9OkVbwSIIb9+tOTfEuShI2dz9i/LLKiV5OSXljPN5YjJQDn3d4nijzG0wXVuhNhyHPa+qRDw9K88OW8ZdU9rA+5ocb8S3VzDC0cDDz+94IANIeZ+WzM6+uAzrWDzCbvrd/UMOto1+H5bzDIj1aVg=</CipherValue>
+              <CipherValue>HVnHJhLDlEJCbh/Kgf05GxBzmxeu0SS5eQB5MvVIcsx7myROouE58ZgwDNIXOBYgJLnf6QTS59upAH3yxFQy6IBm/lsvd/QdnsYTIFfpgxgNXSlaeoHP/0vtoD+qGD4UfKDoUvj/xkG+bLAHzvtP383lFlCtwoixW/eSDuEL13c=</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -81,12 +81,12 @@
           DTS:ConnectionString="Data Source=PROD-UCUDBS10\POWERBI;User ID=rcalvo;Initial Catalog=DW_UCU;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="lIX7uE0oLTQ="
-            IV="JLUJanGj+rlJbdwi7SE+hA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="hhl7ZuDA/0c="
+            IV="Q1eZL+xKcpUTbBMB6L4YQA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>JLUJanGj+rlJbdwi7SE+hFcm5NSrrB8OSzf8nYGnFKkh8cuaJ3Q+OPivljfLk3gjP7Q1Xs3BjGAcOPidsNQ5I86Z8M/27WA+yVRFtpBY69FCfXHZxc++oAIlY7ENzYRCGmd2gdZkFgqzwMQvip20X9TgPlwT2qHjpa7cB1lGxj7SJbNGp5K42HlgdCSrkdeL</CipherValue>
+              <CipherValue>Q1eZL+xKcpUTbBMB6L4YQG/lUx+8DKu6cM3C4OsJJeB/eL3cScVzI/v/u/eDipKqkj0myN16Sy8guCYj2ip843DiBumU2Lrrp+iiCTGK6lJvjr0kwBfqJ6kg/Bew3asP+o92/CarXnYHl7Yi0MPsOQD0r11bnwRzMDzyvPsQKaFTrXP8evjK/yD5kle2XpUb</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -145,7 +145,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Alumnos Clase (Consulta producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -164,7 +164,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Campus (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="11">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -4861,30 +4861,30 @@ AND l.EFFDT = (SELECT MAX(l_ED.EFFDT)
               name="Postgrados"
               startId="Package\Carga DT_clases_inst\División condicional grados.Outputs[Postgrados]" />
             <path
-              refId="Package\Carga DT_clases_inst.Paths[Salida de columna derivada3]"
-              endId="Package\Carga DT_clases_inst\Unión de todo.Inputs[Entrada de Unión de todo 7]"
-              name="Salida de columna derivada"
-              startId="Package\Carga DT_clases_inst\Columna derivada UCUBS.Outputs[Salida de columna derivada]" />
-            <path
-              refId="Package\Carga DT_clases_inst.Paths[Salida de columna derivada2]"
-              endId="Package\Carga DT_clases_inst\Unión de todo.Inputs[Entrada de Unión de todo 5]"
-              name="Salida de columna derivada"
-              startId="Package\Carga DT_clases_inst\Columna derivada FCS.Outputs[Salida de columna derivada]" />
-            <path
-              refId="Package\Carga DT_clases_inst.Paths[Salida de columna derivada1]"
-              endId="Package\Carga DT_clases_inst\Unión de todo.Inputs[Entrada de Unión de todo 4]"
-              name="Salida de columna derivada"
-              startId="Package\Carga DT_clases_inst\Columna derivada FDCH.Outputs[Salida de columna derivada]" />
-            <path
               refId="Package\Carga DT_clases_inst.Paths[Salida de columna derivada4]"
+              endId="Package\Carga DT_clases_inst\División condicional fecha.Inputs[Entrada de división condicional]"
+              name="Salida de columna derivada"
+              startId="Package\Carga DT_clases_inst\Agrega CLAVE_CICLO_CLASE.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Carga DT_clases_inst.Paths[Salida de columna derivada3]"
               endId="Package\Carga DT_clases_inst\Unión de todo.Inputs[Entrada de Unión de todo 8]"
               name="Salida de columna derivada"
               startId="Package\Carga DT_clases_inst\Columna derivada ESPOS.Outputs[Salida de columna derivada]" />
             <path
-              refId="Package\Carga DT_clases_inst.Paths[Salida de columna derivada]"
-              endId="Package\Carga DT_clases_inst\División condicional fecha.Inputs[Entrada de división condicional]"
+              refId="Package\Carga DT_clases_inst.Paths[Salida de columna derivada2]"
+              endId="Package\Carga DT_clases_inst\Unión de todo.Inputs[Entrada de Unión de todo 4]"
               name="Salida de columna derivada"
-              startId="Package\Carga DT_clases_inst\Agrega CLAVE_CICLO_CLASE.Outputs[Salida de columna derivada]" />
+              startId="Package\Carga DT_clases_inst\Columna derivada FDCH.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Carga DT_clases_inst.Paths[Salida de columna derivada1]"
+              endId="Package\Carga DT_clases_inst\Unión de todo.Inputs[Entrada de Unión de todo 5]"
+              name="Salida de columna derivada"
+              startId="Package\Carga DT_clases_inst\Columna derivada FCS.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Carga DT_clases_inst.Paths[Salida de columna derivada]"
+              endId="Package\Carga DT_clases_inst\Unión de todo.Inputs[Entrada de Unión de todo 7]"
+              name="Salida de columna derivada"
+              startId="Package\Carga DT_clases_inst\Columna derivada UCUBS.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\Carga DT_clases_inst.Paths[Salida de origen de ADO NET]"
               endId="Package\Carga DT_clases_inst\Agrega CLAVE_CICLO_CLASE.Inputs[Entrada de columna derivada]"
@@ -4896,22 +4896,22 @@ AND l.EFFDT = (SELECT MAX(l_ED.EFFDT)
               name="Salida de Unión de todo 1"
               startId="Package\Carga DT_clases_inst\Unión de todo.Outputs[Salida de Unión de todo 1]" />
             <path
-              refId="Package\Carga DT_clases_inst.Paths[Salida predeterminada de división condicional1]"
+              refId="Package\Carga DT_clases_inst.Paths[Salida predeterminada de división condicional]"
               endId="Package\Carga DT_clases_inst\Unión de todo.Inputs[Entrada de Unión de todo 2]"
               name="Salida predeterminada de división condicional"
               startId="Package\Carga DT_clases_inst\División condicional grados.Outputs[Salida predeterminada de división condicional]" />
             <path
-              refId="Package\Carga DT_clases_inst.Paths[Salida predeterminada de división condicional]"
+              refId="Package\Carga DT_clases_inst.Paths[Salida predeterminada de división condicional1]"
               endId="Package\Carga DT_clases_inst\Unión de todo.Inputs[Entrada de Unión de todo 1]"
               name="Salida predeterminada de división condicional"
               startId="Package\Carga DT_clases_inst\División condicional fecha.Outputs[Salida predeterminada de división condicional]" />
             <path
-              refId="Package\Carga DT_clases_inst.Paths[Salida predeterminada de división condicional3]"
+              refId="Package\Carga DT_clases_inst.Paths[Salida predeterminada de división condicional2]"
               endId="Package\Carga DT_clases_inst\Unión de todo.Inputs[Entrada de Unión de todo 6]"
               name="Salida predeterminada de división condicional"
               startId="Package\Carga DT_clases_inst\División condicional Grupos Poestgrados.Outputs[Salida predeterminada de división condicional]" />
             <path
-              refId="Package\Carga DT_clases_inst.Paths[Salida predeterminada de división condicional2]"
+              refId="Package\Carga DT_clases_inst.Paths[Salida predeterminada de división condicional3]"
               endId="Package\Carga DT_clases_inst\Unión de todo.Inputs[Entrada de Unión de todo 3]"
               name="Salida predeterminada de división condicional"
               startId="Package\Carga DT_clases_inst\División condicional Grupos.Outputs[Salida predeterminada de división condicional]" />
@@ -5744,19 +5744,23 @@ AND N2.EFFDT &lt; SYSDATE)) INSCRIPTOS</property>
                   description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT c.crse_id AS CURSO_ID,
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT c.crse_id AS CURSO_ID, 
 c.strm AS CICLO_ID,
 c.class_nbr AS CLASE_ID,
 (SELECT DISTINCT N.NATIONAL_ID_TYPE FROM SYSADM.PS_PERS_NID N WHERE i.EMPLID = N.EMPLID AND N.PRIMARY_NID = 'Y') AS TIPO_DOC_DOCENTE,
 (SELECT DISTINCT N.NATIONAL_ID FROM SYSADM.PS_PERS_NID N WHERE i.EMPLID = N.EMPLID AND N.PRIMARY_NID = 'Y') AS DOCUMENTO_ID_DOCENTE,
 i.emplid AS EMPLID_DOCENTE,
 i.instr_role AS ROL_DOCENTE_ID
-FROM SYSADM.PS_CLASS_TBL c, 
-	SYSADM.PS_CLASS_INSTR I, 
-	SYSADM.PS_CRSE_CATALOG L
-WHERE c.crse_id = i.crse_id (+) AND c.crse_offer_nbr = i.crse_offer_nbr  (+) 
-AND c.strm= i.strm  (+) AND c.session_code = i.session_code  (+) AND c.class_section = i.class_section (+) 
-AND c.crse_id = l.crse_id 
+FROM SYSADM.PS_CLASS_TBL c,
+      SYSADM.PS_CLASS_INSTR I,
+      SYSADM.PS_CRSE_CATALOG L
+WHERE c.crse_id = i.crse_id (+) 
+AND c.crse_offer_nbr = i.crse_offer_nbr  (+)
+AND c.strm= i.strm  (+) 
+AND c.session_code = i.session_code  (+) 
+AND c.class_section = i.class_section (+)
+AND c.crse_id = l.crse_id
+AND i.emplid (+) &lt;&gt;  ' '
 AND l.EFFDT = (SELECT MAX(l_ED.EFFDT)
                    FROM SYSADM.ps_crse_catalog L_ED
                    WHERE l.crse_id = l_ED.crse_id
@@ -5795,7 +5799,6 @@ AND l.EFFDT = (SELECT MAX(l_ED.EFFDT)
               <outputs>
                 <output
                   refId="Package\Carga DT_Clase_Inst_Docente\DocentesClases.Outputs[Salida de origen de ADO NET]"
-                  isSorted="true"
                   name="Salida de origen de ADO NET">
                   <outputColumns>
                     <outputColumn
@@ -12630,7 +12633,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Carreras (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -12649,7 +12652,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Ciclos (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="12">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -12668,7 +12671,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Ciclos Grado (Consulta Producciòn)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="13">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -12687,7 +12690,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Clases (Consulta producciòn)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="13">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -12725,7 +12728,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Definicion Evaluaciones (Produccion)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="12">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -12744,7 +12747,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Designaciones docentes"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -12763,7 +12766,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Docente (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="8">
+      DTS:ThreadHint="9">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -12801,7 +12804,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Evaluaciones (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="9">
+      DTS:ThreadHint="8">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -12840,7 +12843,7 @@ ORDER BY ciclo_id</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Rol docente (Consulta Producción)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="11">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -13683,7 +13686,7 @@ ORDER BY ciclo_id</property>
     design-time-name="Package\Carga DT_Clase_Inst_Docente">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="152,42"
           Id="Package\Carga DT_Clase_Inst_Docente\DocentesClases"
@@ -13715,9 +13718,7 @@ ORDER BY ciclo_id</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13739,9 +13740,7 @@ ORDER BY ciclo_id</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13816,7 +13815,7 @@ ORDER BY ciclo_id</property>
           Id="Package\Carga DT_clases_inst\División condicional fecha"
           TopLeft="52.5,179.5" />
         <EdgeLayout
-          Id="Package\Carga DT_clases_inst.Paths[Salida de columna derivada]"
+          Id="Package\Carga DT_clases_inst.Paths[Salida de columna derivada4]"
           TopLeft="153.75,136.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13878,7 +13877,7 @@ ORDER BY ciclo_id</property>
           Id="Package\Carga DT_clases_inst\Unión de todo"
           TopLeft="518.5,681.5" />
         <EdgeLayout
-          Id="Package\Carga DT_clases_inst.Paths[Salida predeterminada de división condicional]"
+          Id="Package\Carga DT_clases_inst.Paths[Salida predeterminada de división condicional1]"
           TopLeft="152.5,221.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -13936,7 +13935,7 @@ ORDER BY ciclo_id</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Carga DT_clases_inst.Paths[Salida predeterminada de división condicional1]"
+          Id="Package\Carga DT_clases_inst.Paths[Salida predeterminada de división condicional]"
           TopLeft="319.5,297.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14012,7 +14011,7 @@ ORDER BY ciclo_id</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Carga DT_clases_inst.Paths[Salida predeterminada de división condicional2]"
+          Id="Package\Carga DT_clases_inst.Paths[Salida predeterminada de división condicional3]"
           TopLeft="593.5,365.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14088,7 +14087,7 @@ ORDER BY ciclo_id</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Carga DT_clases_inst.Paths[Salida de columna derivada1]"
+          Id="Package\Carga DT_clases_inst.Paths[Salida de columna derivada2]"
           TopLeft="728,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14164,7 +14163,7 @@ ORDER BY ciclo_id</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Carga DT_clases_inst.Paths[Salida de columna derivada2]"
+          Id="Package\Carga DT_clases_inst.Paths[Salida de columna derivada1]"
           TopLeft="933,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14238,7 +14237,7 @@ ORDER BY ciclo_id</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Carga DT_clases_inst.Paths[Salida predeterminada de división condicional3]"
+          Id="Package\Carga DT_clases_inst.Paths[Salida predeterminada de división condicional2]"
           TopLeft="1057.5,365.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14314,7 +14313,7 @@ ORDER BY ciclo_id</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Carga DT_clases_inst.Paths[Salida de columna derivada3]"
+          Id="Package\Carga DT_clases_inst.Paths[Salida de columna derivada]"
           TopLeft="1220.5,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14388,7 +14387,7 @@ ORDER BY ciclo_id</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Carga DT_clases_inst.Paths[Salida de columna derivada4]"
+          Id="Package\Carga DT_clases_inst.Paths[Salida de columna derivada3]"
           TopLeft="1432.48156682028,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -14927,7 +14926,7 @@ ORDER BY ciclo_id</property>
     design-time-name="Package\Carga DT_Docente">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="168,42"
           Id="Package\Carga DT_Docente\Destino de OLE DB"
@@ -14955,9 +14954,7 @@ ORDER BY ciclo_id</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

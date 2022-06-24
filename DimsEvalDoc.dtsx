@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="73"
-  DTS:VersionGUID="{10A3A5B8-C50A-42D2-800F-85BE60E9919C}">
+  DTS:VersionBuild="74"
+  DTS:VersionGUID="{18DBA2D2-6ACB-4EB6-879B-435EB0FAB2D7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -38,12 +38,12 @@
           DTS:ConnectionString="Data Source=HRPROD;User ID=UCU_GP;Provider=OraOLEDB.Oracle.1;Persist Security Info=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="nFl8FmF0QPc="
-            IV="1XaOOMKnUZ0MmNGoTOBXlA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="96jhdss8eJ4="
+            IV="JgtBlcENAMzrqh1BMleljQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>1XaOOMKnUZ0MmNGoTOBXlDn7nCAONrjHiO2tls27pQKHHuwyHBcIMoh5IhfTeTHTZt51HNCfJcxWVrIvuE+lcO5zgFzOG3PmFg6XOsv4LZ7FihCwy2vokjDHZFeR9dsM6yDEVvhbntCCEh08ucSr+cJYuYEDAr9r1/GxX0Z6t8igolnsv83zz1RPV3El9WoS</CipherValue>
+              <CipherValue>JgtBlcENAMzrqh1BMleljTdL+23vFWypSqQ6LZG5XoVJkvcopffRdP9IE745bS+RqIXmJe9RgqSo4XezZLugEl5ksdFOccg0GJyiu2qsm9eyurVcQFhdsD3OI02BFeiSye/sgl9BxtZQ6KJAR6L6Q1TsUesy/0ZQPIt7w6uT8g1PT5zpDiNqFfiTnMjqb9mI</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -112,7 +112,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Alumnos clase"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -129,7 +129,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Campus"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="10">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -146,7 +146,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Carreras"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="11">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -163,7 +163,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Ciclo"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="12">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -180,7 +180,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Ciclos Grados"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -199,7 +199,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Clases"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -216,7 +216,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Cursos"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -233,7 +233,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Definicion Evaluaciones"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -250,7 +250,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Docentes"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -267,7 +267,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Docentes clase"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="8">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -4725,30 +4725,30 @@ AND l.EFFDT = (SELECT MAX(l_ED.EFFDT)
               name="Postgrados"
               startId="Package\DT_Clase_Inst\División condicional grados.Outputs[Postgrados]" />
             <path
-              refId="Package\DT_Clase_Inst.Paths[Salida de columna derivada]"
-              endId="Package\DT_Clase_Inst\División condicional fecha.Inputs[Entrada de división condicional]"
-              name="Salida de columna derivada"
-              startId="Package\DT_Clase_Inst\Agrega CLAVE_CICLO_CLASE.Outputs[Salida de columna derivada]" />
-            <path
-              refId="Package\DT_Clase_Inst.Paths[Salida de columna derivada2]"
-              endId="Package\DT_Clase_Inst\Unión de todo.Inputs[Entrada de Unión de todo 4]"
-              name="Salida de columna derivada"
-              startId="Package\DT_Clase_Inst\Columna derivada FCS.Outputs[Salida de columna derivada]" />
-            <path
-              refId="Package\DT_Clase_Inst.Paths[Salida de columna derivada1]"
-              endId="Package\DT_Clase_Inst\Unión de todo.Inputs[Entrada de Unión de todo 6]"
-              name="Salida de columna derivada"
-              startId="Package\DT_Clase_Inst\Columna derivada FDCH.Outputs[Salida de columna derivada]" />
-            <path
               refId="Package\DT_Clase_Inst.Paths[Salida de columna derivada4]"
+              endId="Package\DT_Clase_Inst\Unión de todo.Inputs[Entrada de Unión de todo 5]"
+              name="Salida de columna derivada"
+              startId="Package\DT_Clase_Inst\Columna derivada UCUBS.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\DT_Clase_Inst.Paths[Salida de columna derivada3]"
               endId="Package\DT_Clase_Inst\Unión de todo.Inputs[Entrada de Unión de todo 7]"
               name="Salida de columna derivada"
               startId="Package\DT_Clase_Inst\Columna derivada ESPOS.Outputs[Salida de columna derivada]" />
             <path
-              refId="Package\DT_Clase_Inst.Paths[Salida de columna derivada3]"
-              endId="Package\DT_Clase_Inst\Unión de todo.Inputs[Entrada de Unión de todo 5]"
+              refId="Package\DT_Clase_Inst.Paths[Salida de columna derivada2]"
+              endId="Package\DT_Clase_Inst\Unión de todo.Inputs[Entrada de Unión de todo 6]"
               name="Salida de columna derivada"
-              startId="Package\DT_Clase_Inst\Columna derivada UCUBS.Outputs[Salida de columna derivada]" />
+              startId="Package\DT_Clase_Inst\Columna derivada FDCH.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\DT_Clase_Inst.Paths[Salida de columna derivada1]"
+              endId="Package\DT_Clase_Inst\Unión de todo.Inputs[Entrada de Unión de todo 4]"
+              name="Salida de columna derivada"
+              startId="Package\DT_Clase_Inst\Columna derivada FCS.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\DT_Clase_Inst.Paths[Salida de columna derivada]"
+              endId="Package\DT_Clase_Inst\División condicional fecha.Inputs[Entrada de división condicional]"
+              name="Salida de columna derivada"
+              startId="Package\DT_Clase_Inst\Agrega CLAVE_CICLO_CLASE.Outputs[Salida de columna derivada]" />
             <path
               refId="Package\DT_Clase_Inst.Paths[Salida de origen de OLE DB]"
               endId="Package\DT_Clase_Inst\Agrega CLAVE_CICLO_CLASE.Inputs[Entrada de columna derivada]"
@@ -5877,19 +5877,23 @@ AND N2.EFFDT &lt; SYSDATE)</property>
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT c.crse_id AS CURSO_ID,
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT c.crse_id AS CURSO_ID, 
 c.strm AS CICLO_ID,
 c.class_nbr AS CLASE_ID,
 (SELECT DISTINCT N.NATIONAL_ID_TYPE FROM SYSADM.PS_PERS_NID N WHERE i.EMPLID = N.EMPLID AND N.PRIMARY_NID = 'Y') AS TIPO_DOC_DOCENTE,
 (SELECT DISTINCT N.NATIONAL_ID FROM SYSADM.PS_PERS_NID N WHERE i.EMPLID = N.EMPLID AND N.PRIMARY_NID = 'Y') AS DOCUMENTO_ID_DOCENTE,
 i.emplid AS EMPLID_DOCENTE,
 i.instr_role AS ROL_DOCENTE_ID
-FROM SYSADM.PS_CLASS_TBL c, 
-	SYSADM.PS_CLASS_INSTR I, 
-	SYSADM.PS_CRSE_CATALOG L
-WHERE c.crse_id = i.crse_id (+) AND c.crse_offer_nbr = i.crse_offer_nbr  (+) 
-AND c.strm= i.strm  (+) AND c.session_code = i.session_code  (+) AND c.class_section = i.class_section (+) 
-AND c.crse_id = l.crse_id 
+FROM SYSADM.PS_CLASS_TBL c,
+      SYSADM.PS_CLASS_INSTR I,
+      SYSADM.PS_CRSE_CATALOG L
+WHERE c.crse_id = i.crse_id (+) 
+AND c.crse_offer_nbr = i.crse_offer_nbr  (+)
+AND c.strm= i.strm  (+) 
+AND c.session_code = i.session_code  (+) 
+AND c.class_section = i.class_section (+)
+AND c.crse_id = l.crse_id
+AND i.emplid (+) &lt;&gt;  ' '
 AND l.EFFDT = (SELECT MAX(l_ED.EFFDT)
                    FROM SYSADM.ps_crse_catalog L_ED
                    WHERE l.crse_id = l_ED.crse_id
@@ -10292,7 +10296,7 @@ CASE WHEN EVALUACIONACTIVA='1' THEN 'Activa'
       DTS:LocaleID="-1"
       DTS:ObjectName="Evaluaciones"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="8">
+      DTS:ThreadHint="10">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -10309,7 +10313,7 @@ CASE WHEN EVALUACIONACTIVA='1' THEN 'Activa'
       DTS:LocaleID="-1"
       DTS:ObjectName="Evaluaciones Grado"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="9">
+      DTS:ThreadHint="11">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -10771,7 +10775,7 @@ CASE WHEN EVALUACIONACTIVA='1' THEN 'Activa'
       DTS:LocaleID="-1"
       DTS:ObjectName="Grupos Academicos"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="12">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -10788,7 +10792,7 @@ CASE WHEN EVALUACIONACTIVA='1' THEN 'Activa'
       DTS:LocaleID="-1"
       DTS:ObjectName="Roles docentes"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="9">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -12127,7 +12131,7 @@ CASE WHEN EVALUACIONACTIVA='1' THEN 'Activa'
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DT_Clase_Inst.Paths[Salida de columna derivada1]"
+          Id="Package\DT_Clase_Inst.Paths[Salida de columna derivada2]"
           TopLeft="476,594.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -12161,7 +12165,7 @@ CASE WHEN EVALUACIONACTIVA='1' THEN 'Activa'
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DT_Clase_Inst.Paths[Salida de columna derivada2]"
+          Id="Package\DT_Clase_Inst.Paths[Salida de columna derivada1]"
           TopLeft="686,587.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -12195,7 +12199,7 @@ CASE WHEN EVALUACIONACTIVA='1' THEN 'Activa'
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DT_Clase_Inst.Paths[Salida de columna derivada3]"
+          Id="Package\DT_Clase_Inst.Paths[Salida de columna derivada4]"
           TopLeft="923.5,579.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -12229,7 +12233,7 @@ CASE WHEN EVALUACIONACTIVA='1' THEN 'Activa'
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DT_Clase_Inst.Paths[Salida de columna derivada4]"
+          Id="Package\DT_Clase_Inst.Paths[Salida de columna derivada3]"
           TopLeft="1152.48156682028,578.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
