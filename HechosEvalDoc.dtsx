@@ -12,8 +12,8 @@
   DTS:ObjectName="HechosEvalDoc"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{CCD40DB4-993B-4845-994B-9C052422ABE9}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{5E3E8C1E-809C-4A70-AC02-C2F3FD3857C1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -35,15 +35,15 @@
       DTS:ObjectName="HRPROD.UCU_GP">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=HRPROD;User ID=UCU_GP;Provider=OraOLEDB.Oracle.1;">
+          DTS:ConnectionString="Data Source=HRPROD;User ID=UCU_GP;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="mJjOJQhbtBg="
-            IV="nzrpk+8FBxRZDOKZYr4p2w==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="44zCTzn4ChE="
+            IV="jYh0bhnnDkrPpa53VjULeA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>nzrpk+8FBxRZDOKZYr4p222nsgr98FpmBh6AcrdVsAMJKJjcEvFvhAkm1gbocARVvp/ijKuU1XtZhJS3yhwtdDbvX8QL7/BxA0/sgs0YprgMNxImI64ljmOycg+EIQ+izuCnCDdwKupkWShsvelOmzIpTr32RM+Lt3HjbRhayWw4rvxPn6TfkJXhCxxnYd4R</CipherValue>
+              <CipherValue>jYh0bhnnDkrPpa53VjULeE9tAYiS42sY8HMQQKZxy++qQ2UDGAFAUUnOqqmkm6zgwV/LV05VhLn5cgjWYEUz3whPuSTRJDGcQh5H2efWz2Tt3SJUZgsEwYgbmog/9ZGqvhjMbYgQKHQSnM1J/DVrQBYtn9c2XdH1YjDeLVprYlw6ixQ5AMeVAx9Lh+L7p3wR</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>

@@ -9,11 +9,11 @@
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.132"
   DTS:LocaleID="3082"
-  DTS:ObjectName="Package1"
+  DTS:ObjectName="DesignacionDocenteEnED"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="92"
-  DTS:VersionGUID="{46384D5C-557F-4099-9CFF-8BDD6F720E0D}">
+  DTS:VersionBuild="93"
+  DTS:VersionGUID="{5CC71091-C306-4FE9-B40B-92F3D224F6EC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -38,12 +38,12 @@
           DTS:ConnectionString="Data Source=HRPROD;User ID=UCU_GP;Provider=OraOLEDB.Oracle.1;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="7R2NgdQ83BY="
-            IV="gHNNoE0njqy/mtOPLdP7hw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="bukck4W6OA4="
+            IV="GXhfKeh6efgI5JTUEmLNhQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>gHNNoE0njqy/mtOPLdP7h1toTHV4W6EK66srDVLU4Dv+QQG4sCWK67lHLpMDCJsNxKFhdeU9pKH3HvQB93JGGfbkbT1pZZGDOCcziXGmpcc2O3hAk+5gpOL1/wpjwwWUtu24ERjjyEcPnEC3lJwBeBOB/FsMuh7o8fCFDI3qo26ZXEIy8FL2pktWHtEYOrp5</CipherValue>
+              <CipherValue>GXhfKeh6efgI5JTUEmLNhZcWipxrPzwbcwwb6BAYOATlgcOAAF7HpUaersvxpg0pHxQmryTRxJScGRloeOial/PGs+wVqn5Y/J3QSo/9AhfK6N5SnpK3vW8SEQYB7JmOby9jIyfpGbZ9/CNqbul6UI1N2n+PjoQRNT0xOimXY0fTWcRZNfYFP2MhH5tjfll6</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -69,12 +69,12 @@
           DTS:ConnectionString="uid=MGXCONS;Dsn=RRHH;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="NeOHRvyJTzw="
-            IV="pFrj14C1YWlpsG4xM1FFgg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="W4jvy8fx7es="
+            IV="RivvdO1TXNKcO9gqlpJ0Sw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>pFrj14C1YWlpsG4xM1FFgnwXD/kdChT0GXAf31U5Baol8tEoZCWSpkc4TNw2/UAmwK1cMVzjvasIkGhawS40jDGm0oe6yWe33STEAWeI0AOpMLo1l6dV4DDCIS0YpbgIur6UGXDKZda7bXZogPh/3yo/3r5Fp5l5S5TFy/fy0EM=</CipherValue>
+              <CipherValue>RivvdO1TXNKcO9gqlpJ0S1bSa/ZoLFvkql9Vl7cpFLR7Uc3k/tcrpMJd49L2+k7TqnJkpR7/5/fUfL/goGsggVePSVoBDEGE8IJXnC2kRgxYXUWp/e35H3EDR5MPthQVimfPBM7bPB+7pYbyvsxkJVq9cvwzxqSW5rHXQxki8rc=</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -3001,7 +3001,7 @@ ORDER BY NRO_FUN_MGX</property>
           Text="No se utiliza màs la tabla DT_Designacion_Docente desde que se generó la FT_DESIGNACION_DS"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="541,60"
+          Size="541,40"
           Id="383d85d4-deb1-41ec-abc5-db8b0a224015"
           TopLeft="22,29" />
       </GraphLayout>
